@@ -1,0 +1,87 @@
+/* Container for all icon buttons */
+.icon-button {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Main button style */
+.button {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 50px;
+  border-radius: 50px;
+  padding: 0 16px;
+  margin: 0px 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Expand button on hover */
+.button:hover {
+  width: auto;
+}
+
+/* Icon container */
+.s-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Icon style */
+.s-icon i {
+  font-size: 20px;
+  color: #000;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Text next to icon */
+.button span,
+.button a {
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 12px;
+  white-space: nowrap;
+  color: #000;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Hover effects for each button */
+.button:nth-child(1):hover .s-icon {
+  background: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+}
+.button:nth-child(1):hover i {
+  color: #fff;
+}
+.button:nth-child(1):hover a {
+  color: hsl(329, 70%, 58%);
+}
+
+.button:nth-child(2):hover .s-icon {
+  background-color: #0a66c2;
+}
+.button:nth-child(2):hover i {
+  color: #fff;
+}
+.button:nth-child(2):hover a {
+  color: #0a66c2;
+}
+
+.button:nth-child(3):hover .s-icon {
+  background-color: #24292f;
+}
+.button:nth-child(3):hover i {
+  color: #f5f5f5;
+}
+.button:nth-child(3):hover a {
+  color: #24292f;
+}
