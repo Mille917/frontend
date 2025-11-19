@@ -4,18 +4,16 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 const isVisible = ref(true);
-let lastScrollY = window.scrollY;
-
-// ✅ Secret triple-click logic
 const clickCount = ref(0);
+let lastScrollY = 0;
 let clickTimeout = null;
 
+// ✅ Secret triple-clic
 const triggerSecret = () => {
   clickCount.value++;
 
   if (clickTimeout) clearTimeout(clickTimeout);
 
-  // Reset si l'utilisateur ne clique pas assez vite
   clickTimeout = setTimeout(() => {
     clickCount.value = 0;
   }, 1000);
@@ -32,7 +30,9 @@ const handleScroll = () => {
   lastScrollY = currentScrollY;
 };
 
+// ✅ S’exécute uniquement côté client
 onMounted(() => {
+  lastScrollY = window.scrollY;
   window.addEventListener("scroll", handleScroll);
 });
 
@@ -59,7 +59,7 @@ onUnmounted(() => {
       >
         <!-- ✅ Triple click ici -->
         <h1
-          class="text-xl font-bold text-blue-600 dark:text-blue-400 select-none cursor-pointer"
+          class="text-xl font-bold text-blue-600 dark:text-blue-400 select-none"
           @click="triggerSecret"
         >
           Raïssa<span class="text-gray-800 dark:text-gray-200">.dev</span>

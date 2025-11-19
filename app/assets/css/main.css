@@ -1,6 +1,38 @@
 @import "tailwindcss/preflight";
 @tailwind utilities;
-@tailwind components;
-@tailwind base;
 @import "tailwindcss";
 
+@keyframes fade-in {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in {
+  animation: fade-in .3s ease-in-out;
+}
+
+.stat-card {
+  @apply bg-white rounded-xl shadow-md p-6 flex flex-col items-center justify-center hover:shadow-xl transition transform hover:-translate-y-1;
+}
+
+.action-card {
+  @apply flex items-center justify-center text-center font-medium py-6 rounded-xl border shadow hover:shadow-lg transition text-gray-700 hover:text-blue-800;
+}
+
+.input {
+  @apply w-full border rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+.inputCompetence {
+  @apply w-full border border-gray-300 rounded px-3 py-2 focus:ring-2 focus:ring-blue-400 outline-none;
+}
+
+.inputProject {
+  @apply w-full border rounded-lg px-3 py-2 mt-1 focus:ring-2 focus:ring-blue-500 focus:outline-none transition;
+}
+.label {
+  @apply block font-medium mb-1 text-black ;
+}
+
+.inputSkills {
+  @apply w-full border rounded-lg px-3 py-2 mt-1 focus:ring-2 focus:ring-blue-500 focus:outline-none transition;
+}

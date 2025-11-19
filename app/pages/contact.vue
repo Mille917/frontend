@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
+const config = useRuntimeConfig();
 
 const name = ref("");
 const email = ref("");
@@ -12,7 +13,7 @@ const submit = async () => {
   success.value = false;
 
   try {
-    await $fetch("/api/contact", {
+    await $fetch(`${config.public.apiBase}/public/contact`, {
       method: "POST",
       body: {
         name: name.value,
@@ -66,7 +67,7 @@ const submit = async () => {
             required
           />
         </div>
-
+      
         <div class="mb-4">
           <label class="text-gray-700 font-medium">Message</label>
           <textarea

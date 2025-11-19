@@ -14,7 +14,7 @@ useSeoMeta({
 <template>
   <div class="min-h-screen bg-gray-50 text-gray-900">
     <!-- ✅ Hero Section -->
-    <section class="bg-indigo-700 text-white py-24">
+    <section class="bg-gradient-to-br from-indigo-800 via-blue-800 to-indigo-900 text-white py-24">
       <div
         class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 px-6"
       >
@@ -33,7 +33,7 @@ useSeoMeta({
           </p>
           <NuxtLink
             to="/projects"
-            class="inline-block mt-6 bg-white text-indigo-700 px-6 py-3 rounded-lg font-medium shadow-md hover:bg-gray-800 hover:text-amber-50 transition"
+            class="inline-block mt-6 bg-white text-indigo-700 px-6 py-3 rounded-lg font-medium shadow-md hover:bg-gray-800 hover:text-amber-50 transition-colors duration-600"
           >
             Voir mes projets <i class="fas fa-rocket"></i>
           </NuxtLink>
