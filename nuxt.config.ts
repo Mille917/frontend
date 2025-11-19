@@ -17,7 +17,6 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "@nuxt/test-utils",
     "@nuxt/ui",
-
     "@pinia/nuxt",
   ],
 
@@ -26,11 +25,11 @@ export default defineNuxtConfig({
   },
   runtimeConfig: {
     public: {
-      apiBase: "http://localhost:3333",
+      apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://127.0.0.1:3333/api", // URL de l'API backend
     },
   },
-  vite: { 
-    plugins: [tsconfigPaths(),
-      tailwindcss(),
-    ], },
+
+  vite: {
+    plugins: [tsconfigPaths(), tailwindcss()],
+  },
 });
