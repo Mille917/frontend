@@ -1,7 +1,4 @@
-📘 README (FR + EN)
-
-(Prêt à coller dans ton repo GitHub : Mille917/portfolio)
-
+📘 README 
 ⸻
 
 Portfolio – Full-Stack Developer Portfolio
