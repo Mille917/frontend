@@ -1,0 +1,81 @@
+
+services:
+  # 🧱 BACKEND ADONIS
+  adonis:
+    build:
+     context: ./backend
+    container_name: adonis_backend
+    restart: unless-stopped
+    ports:
+      - "3333:3333"
+    environment:
+      NODE_ENV: development
+      DB_CONNECTION: pg
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: postgres
+      DB_PASSWORD: postgres
+      DB_DATABASE: portfolio_db
+      TZ: Africa/Kinshasa
+    depends_on:
+      - db
+    networks:
+      - portfolio_net
+
+  # 🗄️ BASE DE DONNÉES POSTGRES
+  db:
+    image: postgres:15
+    container_name: postgres_portfolio
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: portfolio_db
+    ports:
+      - "5435:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    networks:
+      - portfolio_net
+
+  # 🧰 PGADMIN
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: pgadmin_portfolio
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@portfolio.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    networks:
+      - portfolio_net
+
+  # 🌐 FRONTEND NUXT
+  frontend:
+    build:
+      context: ./frontend
+    container_name: nuxt_frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NUXT_PUBLIC_API_BASE=http://adonis:3333/api
+    depends_on:
+      - adonis
+    command: npm run dev
+    networks:
+      - portfolio_net
+
+# 🔗 RÉSEAU PARTAGÉ
+networks:
+  portfolio_net:
+
+# 💾 VOLUMES PERSISTANTS (tu ne perds pas tes données)
+volumes:
+  pg_data:
+  pgadmin_data:
