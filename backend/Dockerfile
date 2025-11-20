@@ -17,6 +17,6 @@ WORKDIR /app
 COPY --from=builder /app /app
 
 # Expose le port Adonis (3333 par défaut)
-EXPOSE 8080
+EXPOSE 3333
 
 CMD ["npm", "run", "dev"]
