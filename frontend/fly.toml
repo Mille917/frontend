@@ -1,24 +1,25 @@
-# fly.toml app configuration file generated for portfolioraissa on 2025-11-28T08:58:17+01:00
+# fly.toml app configuration file generated for my-portfolio-raissa on 2025-11-28T08:18:25+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'portfolioraissa'
-primary_region = 'iad'
+app = 'my-portfolio-raissa'
+primary_region = 'jnb'
 
 [build]
   dockerfile = './Dockerfile'
 
 [env]
-  HOST = '0.0.0.0'
+  NITRO_HOST = '0.0.0.0'
+  NITRO_PORT = '3000'
   NODE_ENV = 'production'
-  PORT = '3333'
+  PORT = '3000'
 
 [processes]
-  app = 'node build/server.js'
+  app = 'node .output/server/index.mjs'
 
 [http_service]
-  internal_port = 3333
+  internal_port = 3000
   force_https = true
   auto_stop_machines = 'stop'
   auto_start_machines = true

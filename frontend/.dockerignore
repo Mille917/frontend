@@ -1,6 +1,26 @@
-/.git
-/node_modules
-.dockerignore
-.env
+# IGNORE LOCAL BUILD OUTPUTS
+.nuxt
+.output
+.nitro
+
+# IGNORE HEAVY FOLDERS
+node_modules
+
+# IGNORE GIT
+.git
+.gitignore
+
+# IGNORE STATIC DIST NOT NEEDED IN DOCKER
+dist
+
+# CONFIG FILES THAT SHOULD NOT BE COPIED
 Dockerfile
 fly.toml
+
+# OS JUNK
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# LOG FILES
+*.log

@@ -20,7 +20,7 @@ useSeoMeta({
       >
         <!-- Photo -->
         <img
-          src="https://media.licdn.com/dms/image/v2/D4E03AQHdpAtJ1llYgQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1728773953642?e=1762992000&v=beta&t=f6ee5gbVRDWA4KbKd3O2ouEKHXK_ez6akcwUVYG6d9c"
+          src="/raissa-bomboko-profile.jpg"
           alt="Raïssa Bomboko"
           class="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-white"
         />
@@ -56,7 +56,7 @@ useSeoMeta({
       class="max-w-6xl mx-auto px-6 pb-24 grid md:grid-cols-3 gap-8 text-center">
       <NuxtLink
         to="/skills"
-        class="group border rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
+        class=" border-amber-200 rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
       >
         <h2
           class="text-xl font-semibold text-blue-900 mb-3 group-hover:text-blue-700 transition"
@@ -70,7 +70,7 @@ useSeoMeta({
 
       <NuxtLink
         to="/experiences"
-        class="group border rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
+        class="border-amber-200 rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
       >
         <h2
           class="text-xl font-semibold text-blue-900 mb-3 group-hover:text-blue-700 transition"
@@ -84,7 +84,7 @@ useSeoMeta({
 
       <NuxtLink
         to="/contact"
-        class="group border rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
+        class="border-amber-200 rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
       >
         <h2
           class="text-xl font-semibold text-blue-900 mb-3 group-hover:text-blue-700 transition"
