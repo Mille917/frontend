@@ -102,8 +102,8 @@ const updateProject = async () => {
     "title",
     "description",
     "technologies",
-    "github_link",
-    "demo_link",
+    "githubLink",
+    "demoLink",
     "price",
     "duration",
   ]) {
@@ -193,6 +193,11 @@ onMounted(fetchProject);
 
         <!-- Description -->
         <div>
+          <label class="label">Description</label>
+          <RichTextarea v-model="form.description" />
+        </div>
+
+        <!-- <div>
           <label class="label">
             <i class="fa-solid fa-align-left mr-2"></i> Description
           </label>
@@ -202,7 +207,7 @@ onMounted(fetchProject);
             class="input"
             required
           ></textarea>
-        </div>
+        </div> -->
 
         <!-- Technologies -->
         <div>

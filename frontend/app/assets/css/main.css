@@ -36,3 +36,42 @@
 .inputSkills {
   @apply w-full border rounded-lg px-3 py-2 mt-1 focus:ring-2 focus:ring-blue-500 focus:outline-none transition;
 }
+
+.btn {
+  @apply px-2 py-1 text-sm rounded border bg-white hover:bg-gray-200 transition;
+}
+
+.prose :deep(p) {
+  @apply mb-2;
+}
+
+#rich-editor:focus {
+  outline: none;
+}
+
+/* LISTE */
+#rich-editor ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+}
+#rich-editor li {
+  display: list-item;
+}
+
+/* TITRE H3 */
+#rich-editor h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.75rem 0;
+  color: #1e3a8a;
+}
+
+/* CITATION */
+#rich-editor blockquote {
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #374151;
+  font-style: italic;
+}

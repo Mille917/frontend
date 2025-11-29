@@ -85,3 +85,34 @@
 .button:nth-child(3):hover a {
   color: #24292f;
 }
+
+.btn {
+  @apply px-2 py-1 text-sm rounded border bg-white hover:bg-gray-200 transition;
+}
+
+/* LISTE */
+#rich-editor ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  padding-left: 1rem;
+}
+#rich-editor li {
+  display: list-item;
+}
+
+/* TITRE H3 */
+#rich-editor h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0.75rem 0;
+  color: #1e3a8a;
+}
+
+/* CITATION */
+#rich-editor blockquote {
+  border-left: 4px solid #3b82f6;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #374151;
+  font-style: italic;
+}

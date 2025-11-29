@@ -30,6 +30,10 @@ export default defineNuxtConfig({
   },
 
   vite: {
-    plugins: [tsconfigPaths(), tailwindcss()],
+    plugins: [
+      tsconfigPaths(),
+      tailwindcss(),
+      require("@tailwindcss/typography"),
+    ],
   },
 });

@@ -74,9 +74,10 @@ onMounted(async () => {
           {{ project.title }}
         </h1>
 
-        <p class="text-gray-600 max-w-3xl mx-auto leading-relaxed">
-          {{ project.description }}
-        </p>
+        <div
+          class="text-gray-600 max-w-3xl mx-auto leading-relaxed prose prose-sm sm:prose-base"
+          v-html="project.description"
+        ></div>
 
         <div
           class="flex justify-center flex-wrap gap-4 mt-4 text-sm text-gray-600"
