@@ -98,17 +98,17 @@ const updateProject = async () => {
   const formData = new FormData();
 
   // ✅ Ajouter seulement les champs utiles
-  for (const key of [
-    "title",
-    "description",
-    "technologies",
-    "githubLink",
-    "demoLink",
-    "price",
-    "duration",
-  ]) {
-    formData.append(key, form.value[key] || "");
-  }
+  for (const [key, value] of Object.entries({
+  title: form.value.title,
+  description: form.value.description,
+  technologies: form.value.technologies,
+  github_link: form.value.githubLink,
+  demo_link: form.value.demoLink,
+  price: form.value.price,
+  duration: form.value.duration,
+})) {
+  formData.append(key, value || "")
+}
 
   // ✅ Ajouter le fichier image si nouveau
   if (imageFile.value) {
