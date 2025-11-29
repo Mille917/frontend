@@ -56,7 +56,7 @@ useSeoMeta({
       class="max-w-6xl mx-auto px-6 pb-24 grid md:grid-cols-3 gap-8 text-center">
       <NuxtLink
         to="/skills"
-        class=" border-amber-200 rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
+        class="group border rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
       >
         <h2
           class="text-xl font-semibold text-blue-900 mb-3 group-hover:text-blue-700 transition"
@@ -70,7 +70,7 @@ useSeoMeta({
 
       <NuxtLink
         to="/experiences"
-        class="border-amber-200 rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
+        class="group border rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
       >
         <h2
           class="text-xl font-semibold text-blue-900 mb-3 group-hover:text-blue-700 transition"
@@ -84,7 +84,7 @@ useSeoMeta({
 
       <NuxtLink
         to="/contact"
-        class="border-amber-200 rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
+        class="group border rounded-2xl p-10 shadow-md transition hover:shadow-2xl hover:-translate-y-2 bg-white hover:bg-blue-50"
       >
         <h2
           class="text-xl font-semibold text-blue-900 mb-3 group-hover:text-blue-700 transition"

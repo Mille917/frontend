@@ -43,8 +43,8 @@ const fetchProject = async () => {
       title: data.title,
       description: data.description,
       technologies: data.technologies || "",
-      github_link: data.github_link || "",
-      demo_link: data.demo_link || "",
+      githubLink: data.githubLink || "",
+      demoLink: data.demoLink || "",
       imageUrl: data.imageUrl || "",
       price: data.price || "",
       duration: data.duration || "",
@@ -243,13 +243,13 @@ onMounted(fetchProject);
             <label class="label">
               <i class="fa-brands fa-github mr-2"></i> Lien GitHub
             </label>
-            <input v-model="form.github_link" class="input" type="url" />
+            <input v-model="form.githubLink" class="input" type="url" />
           </div>
           <div>
             <label class="label">
               <i class="fa-solid fa-globe mr-2"></i> Lien Démo
             </label>
-            <input v-model="form.demo_link" class="input" type="url" />
+            <input v-model="form.demoLink" class="input" type="url" />
           </div>
         </div>
 
