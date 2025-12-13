@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for my-portfolio-raissa on 2025-11-28T08:18:25+01:00
+# fly.toml app configuration file generated for my-portfolio-raissa on 2025-11-30T21:23:09+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
 app = 'my-portfolio-raissa'
-primary_region = 'jnb'
+primary_region = 'gru'
 
 [build]
   dockerfile = './Dockerfile'
