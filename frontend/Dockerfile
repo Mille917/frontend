@@ -9,21 +9,32 @@
 # CMD ["npm", "run", "dev"]
 # Build stage
 # --- Build stage ---
-FROM node:18 AS builder
+# ========== BASE IMAGE ==========
+FROM node:20-alpine AS base
 WORKDIR /app
 
+# Install dependencies
 COPY package*.json ./
 RUN npm install
 
+# Copy rest of the frontend
 COPY . .
+
+# Build your Nuxt SSR app
 RUN npm run build
 
-# --- Production stage ---
-FROM node:18 AS runner
+# ========== RUNNER IMAGE ==========
+FROM node:20.17.0-alpine AS builder
 WORKDIR /app
 
-COPY --from=builder /app/.output ./.output
+# Copy only the built output + package.json
+COPY --from=base /app/.output ./.output
+COPY package*.json ./
 
 EXPOSE 3000
-CMD ["node", ".output/server/index.mjs"]
 
+ENV NODE_ENV=production
+ENV NITRO_PORT=3000
+ENV NITRO_HOST=0.0.0.0
+
+CMD ["node", ".output/server/index.mjs"]

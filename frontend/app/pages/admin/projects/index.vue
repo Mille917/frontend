@@ -105,9 +105,10 @@ onMounted(() => loadProjects());
           <h3 class="font-semibold text-lg text-gray-900 truncate mb-2">
             {{ p.title }}
           </h3>
-          <p class="text-gray-600 text-sm line-clamp-3 mb-4 flex-1">
-            {{ p.description }}
-          </p>
+          <div
+            class="text-gray-600 text-sm line-clamp-3"
+            v-html="p.description"
+          ></div>
 
           <div class="flex justify-between items-center pt-3 mt-3">
             <NuxtLink

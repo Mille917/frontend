@@ -92,9 +92,10 @@ onMounted(async () => {
             {{ project.title }}
           </h2>
 
-          <p class="text-gray-600 text-sm mb-4 line-clamp-3 flex-1">
-            {{ project.description }}
-          </p>
+          <div
+            class="text-gray-600 text-sm mb-4 line-clamp-3 flex-1 overflow-hidden"
+            v-html="project.description"
+          ></div>
 
           <!-- 🔗 Liens et détails -->
           <div class="flex justify-between items-center mt-auto pt-3 border-t">

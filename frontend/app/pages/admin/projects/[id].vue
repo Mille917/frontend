@@ -43,8 +43,8 @@ const fetchProject = async () => {
       title: data.title,
       description: data.description,
       technologies: data.technologies || "",
-      github_link: data.github_link || "",
-      demo_link: data.demo_link || "",
+      githubLink: data.githubLink || "",
+      demoLink: data.demoLink || "",
       imageUrl: data.imageUrl || "",
       price: data.price || "",
       duration: data.duration || "",
@@ -98,17 +98,17 @@ const updateProject = async () => {
   const formData = new FormData();
 
   // ✅ Ajouter seulement les champs utiles
-  for (const key of [
-    "title",
-    "description",
-    "technologies",
-    "github_link",
-    "demo_link",
-    "price",
-    "duration",
-  ]) {
-    formData.append(key, form.value[key] || "");
-  }
+  for (const [key, value] of Object.entries({
+  title: form.value.title,
+  description: form.value.description,
+  technologies: form.value.technologies,
+  github_link: form.value.githubLink,
+  demo_link: form.value.demoLink,
+  price: form.value.price,
+  duration: form.value.duration,
+})) {
+  formData.append(key, value || "")
+}
 
   // ✅ Ajouter le fichier image si nouveau
   if (imageFile.value) {
@@ -193,6 +193,11 @@ onMounted(fetchProject);
 
         <!-- Description -->
         <div>
+          <label class="label">Description</label>
+          <RichTextarea v-model="form.description" />
+        </div>
+
+        <!-- <div>
           <label class="label">
             <i class="fa-solid fa-align-left mr-2"></i> Description
           </label>
@@ -202,7 +207,7 @@ onMounted(fetchProject);
             class="input"
             required
           ></textarea>
-        </div>
+        </div> -->
 
         <!-- Technologies -->
         <div>
@@ -243,13 +248,13 @@ onMounted(fetchProject);
             <label class="label">
               <i class="fa-brands fa-github mr-2"></i> Lien GitHub
             </label>
-            <input v-model="form.github_link" class="input" type="url" />
+            <input v-model="form.githubLink" class="input" type="url" />
           </div>
           <div>
             <label class="label">
               <i class="fa-solid fa-globe mr-2"></i> Lien Démo
             </label>
-            <input v-model="form.demo_link" class="input" type="url" />
+            <input v-model="form.demoLink" class="input" type="url" />
           </div>
         </div>
 

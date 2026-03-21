@@ -1,17 +1,23 @@
-# ---- Étape 1 : builder ----
+# Stage 1: Build the AdonisJS app
 FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Install dependencies
 COPY package*.json ./
 RUN npm ci
 
+# Copy the rest of the application
 COPY . .
 
 # Run the Adonis build command
 RUN node ace build
 
-# ---- Étape 2 : runner ----
+# Run the Adonis build command
+RUN node ace build
+
+
+# Stage 2: Production runner
 FROM node:20-alpine
 
 WORKDIR /app

@@ -26,10 +26,15 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || "http://127.0.0.1:3333/api", // URL de l'API backend
+      // apiBase: process.env.NUXT_PUBLIC_API_BASE || "https://portfolioraissa.fly.dev",
     },
   },
 
   vite: {
-    plugins: [tsconfigPaths(), tailwindcss()],
+    plugins: [
+      tsconfigPaths(),
+      tailwindcss(),
+      require("@tailwindcss/typography"),
+    ],
   },
 });

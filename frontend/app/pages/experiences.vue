@@ -47,9 +47,9 @@ onMounted(async () => {
   <div class="max-w-6xl mx-auto py-20 px-6">
     <!-- 🔹 Titre principal -->
     <h1
-      class="text-3xl font-bold text-center text-blue-900 dark:text-blue-400 mb-16 flex items-center justify-center gap-3"
+      class="text-3xl font-bold text-center text-blue-900  mb-16 flex items-center justify-center gap-3"
     >
-      <i class="fa-solid fa-road text-blue-700 dark:text-blue-700"></i>
+      <i class="fa-solid fa-road text-blue-600 "></i>
       <span>Mon Parcours</span>
     </h1>
 
@@ -74,7 +74,7 @@ onMounted(async () => {
     <!-- 🔹 Timeline -->
     <div
       v-if="experiences.length > 0"
-      class="relative border-l-2 border-blue-200 dark:border-blue-700 ml-5 pl-8 space-y-10"
+      class="relative border-l-2 border-blue-200  ml-5 pl-8 space-y-10"
     >
       <div
         v-for="exp in experiences"
@@ -83,27 +83,27 @@ onMounted(async () => {
       >
         <!-- Timeline Dot -->
         <div
-          class="absolute -left-4 top-2 w-7 h-7 bg-blue-600 rounded-full border-4 border-white dark:border-gray-900 shadow-md flex items-center justify-center"
+          class="absolute -left-4 top-2 w-7 h-7 bg-blue-600 rounded-full border-4 border-white  shadow-md flex items-center justify-center"
         >
           <i class="fa-solid fa-briefcase text-white text-xs"></i>
         </div>
 
         <!-- Timeline Card -->
         <div
-          class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-sm hover:shadow-2xl transition duration-300 border border-gray-100 dark:border-gray-700"
+          class="bg-white p-6 rounded-2xl shadow-sm hover:shadow-2xl transition duration-300 border border-gray-100"
         >
           <!-- Titre -->
           <h2
-            class="text-xl font-semibold text-blue-800 dark:text-blue-400 group-hover:text-blue-600 mb-1 flex items-center gap-2"
+            class="text-xl font-semibold text-blue-800 group-hover:text-blue-600 mb-1 flex items-center gap-2"
           >
             <i
-              class="fa-solid fa-code-branch text-blue-600 dark:text-blue-500"
+              class="fa-solid fa-code-branch text-blue-600"
             ></i>
             {{ exp.position }}
           </h2>
 
           <!-- Entreprise & localisation -->
-          <p class="text-gray-600 dark:text-gray-400 font-medium mb-2">
+          <p class="text-gray-600 font-medium mb-2">
             <i class="fa-solid fa-building text-gray-400 mr-1"></i>
             {{ exp.company }}
             <span v-if="exp.location" class="ml-1 text-gray-500">
@@ -113,7 +113,7 @@ onMounted(async () => {
 
           <!-- Dates -->
 
-          <p class="text-gray-500 dark:text-gray-400 text-sm mb-3 italic">
+          <p class="text-gray-500 text-sm mb-3 italic">
             <i class="fa-regular fa-calendar text-blue-500 mr-1"></i>
             {{ formatDate(exp.startDate) }} — →
             <span v-if="exp.endDate">
@@ -121,13 +121,13 @@ onMounted(async () => {
             </span>
             <span
               v-else
-              class="font-semibold text-green-600 dark:text-green-400"
+              class="font-semibold text-green-600"
             >
               Aujourd’hui
             </span>
           </p>
           <!-- Description -->
-          <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p class="text-gray-700 leading-relaxed">
             {{ exp.description }}
           </p>
         </div>
