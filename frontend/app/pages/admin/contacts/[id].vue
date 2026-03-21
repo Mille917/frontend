@@ -23,14 +23,15 @@ onMounted(async () => {
       }
     );
 
-    if (!contact.value.is_read) {
+    if (!(contact.value.isRead ?? contact.value.is_read)) {
       await $fetch(`${config.public.apiBase}/contacts/${route.params.id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${userStore.token}`,
         },
-        body: { is_read: true },
+        body: { isRead: true, is_read: true },
       });
+      contact.value.isRead = true;
       contact.value.is_read = true;
     }
   } catch (err: any) {
@@ -107,11 +108,11 @@ const deleteMessage = async () => {
           <p><strong>Email :</strong> {{ contact.email }}</p>
           <p>
             <strong>Reçu le :</strong>
-            {{ new Date(contact.created_at).toLocaleString() }}
+            {{ new Date(contact.createdAt || contact.created_at).toLocaleString() }}
           </p>
 
           <p
-            v-if="contact.is_read"
+            v-if="contact.isRead ?? contact.is_read"
             class="text-green-700 dark:text-green-400 font-medium flex items-center gap-2"
           >
             <i class="fa-solid fa-circle-check"></i> Message lu

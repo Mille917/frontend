@@ -17,7 +17,7 @@ const loadContacts = async () => {
     });
     contacts.value = data.sort(
       (a: any, b: any) =>
-        new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        new Date(b.createdAt || b.created_at).getTime() - new Date(a.createdAt || a.created_at).getTime()
     );
   } catch (err: any) {
     console.error("Erreur chargement contacts :", err);
@@ -31,12 +31,14 @@ const loadContacts = async () => {
 /* ✅ Marquer comme lu / non lu */
 const toggleRead = async (contact: any) => {
   try {
+    const isCurrentlyRead = contact.isRead ?? contact.is_read;
     await $api.put(
       `/contacts/${contact.id}`,
-      { is_read: !contact.is_read },
+      { isRead: !isCurrentlyRead, is_read: !isCurrentlyRead },
       { headers: { Authorization: `Bearer ${userStore.token}` } }
     );
-    contact.is_read = !contact.is_read;
+    contact.isRead = !isCurrentlyRead;
+    contact.is_read = !isCurrentlyRead;
   } catch (err) {
     console.error("Erreur lors de la mise à jour du statut", err);
   }
@@ -95,7 +97,7 @@ onMounted(loadContacts);
             {{ c.name }}
           </h2>
           <i
-            v-if="c.is_read"
+            v-if="c.isRead ?? c.is_read"
             class="fa-solid fa-circle-check text-green-600"
             title="Lu"
           ></i>
@@ -114,7 +116,7 @@ onMounted(loadContacts);
           {{ c.message }}
         </p>
         <p class="text-xs text-gray-400 mt-3">
-          Reçu le {{ new Date(c.created_at).toLocaleString() }}
+          Reçu le {{ new Date(c.createdAt || c.created_at).toLocaleString() }}
         </p>
 
         <div class="mt-4 flex justify-between items-center">
@@ -130,15 +132,15 @@ onMounted(loadContacts);
               @click="toggleRead(c)"
               class="text-sm rounded px-2 py-1 transition flex items-center gap-1"
               :class="
-                c.is_read
+                (c.isRead ?? c.is_read)
                   ? 'bg-green-100 text-green-700 hover:bg-green-200'
                   : 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
               "
             >
               <i
-                :class="c.is_read ? 'fa-solid fa-check' : 'fa-regular fa-envelope-open'"
+                :class="(c.isRead ?? c.is_read) ? 'fa-solid fa-check' : 'fa-regular fa-envelope-open'"
               ></i>
-              {{ c.is_read ? 'Lu' : 'Non lu' }}
+              {{ (c.isRead ?? c.is_read) ? 'Lu' : 'Non lu' }}
             </button>
 
             <button
