@@ -13,9 +13,6 @@ COPY . .
 # Run the Adonis build command
 RUN node ace build
 
-# Run the Adonis build command
-RUN node ace build
-
 
 # Stage 2: Production runner
 FROM node:20-alpine
