@@ -1,0 +1,92 @@
+{
+  "admin": {
+    "dashboard": "Etánda ya bokambi",
+    "dashboard_title": "Etánda ya bokambi Admin",
+    "loading_stats": "Nazo bimisa bamakambo...",
+    "error_dashboard": "Mabe ekoti pona etánda ya bokambi.",
+    "projects": "Misala",
+    "skills": "Mayele",
+    "experiences": "Mituya",
+    "quick_actions": "Kosalama Noki",
+    "add_project": "Kobakisa mosala",
+    "manage_skills": "Kobongisa mayele",
+    "manage_experiences": "Kobongisa mituya",
+    "view_messages": "Komona bansango",
+    "messages": "Bansango",
+    "back_to_dashboard": "Kozonga na etánda ya bokambi",
+    "no_messages": "Sango moko te ezuami po na sikayo 📭"
+  },
+  "messages": {
+    "title": "Bansango ezuami",
+    "received": "Ezuami na",
+    "read": "Etangami",
+    "unread": "Etangami te",
+    "delete": "Koboma",
+    "read_verb": "Kotanga",
+    "loading": "Nazo bimisa bansango...",
+    "error_loading": "Mabe esalemi po na kobimisa bansango."
+  },
+  "cart": {
+    "title": "Saki na yo ya kosomba",
+    "empty": "Saki na yo eza pamba.",
+    "total": "Talo nyonso:",
+    "checkout": "Kofuta",
+    "currency": "FC"
+  },
+  "nav": {
+    "home": "Ebandeli",
+    "projects": "Misala",
+    "skills": "Mayele",
+    "experiences": "Mituya",
+    "contact": "Sangana"
+  },
+  "footer": {
+    "rights": "Makoki nionso ebatelami"
+  },
+  "home": {
+    "title": "Portfolio — Raïssa Bomboko",
+    "meta_description": "Mona mayele mpe misala na ngai",
+    "subtitle": "Mosali Full Stack • Moto asiatalelaka myango ya sika",
+    "view_projects": "Komona misala na ngai",
+    "welcome": "Boyeyi malamu na portfolio na ngai! Naza na esengo ya kokabola mayele, mituya mpe misala na ngai elongo na bino. Kota na ba eteni ndenge na ndenge po oyeba lisusu mingi etali bomoi na ngai mpe misala nasalá.",
+    "tools": "Mona biloko nakosalelaka misala na ngai",
+    "journey": "Bokoli na ngai na nzela eye",
+    "work_together": "Tosala elongo"
+  },
+  "contact": {
+    "title": "Kosolola na ngai",
+    "fullname_label": "Nkombo mobimba",
+    "fullname_placeholder": "Nkombo na yo",
+    "email_label": "Email",
+    "email_placeholder": "email@gmail.com",
+    "message_label": "Sango",
+    "message_placeholder": "Koma sango na yo...",
+    "sending": "Ezo tinda...",
+    "send_button": "Kotinda sango",
+    "success_message": "✅ Matondi! Sango na yo ekei malamu.",
+    "info_title": "Bamakambo",
+    "location": "📍 Kinshasa, République Démocratique du Congo",
+    "availability": "Naza pene ya kosala misala & bamosi (freelance)"
+  },
+  "projects": {
+    "title": "Misala na ngai",
+    "loading": "Nazo bimisa misala...",
+    "code": "Monikó",
+    "demo": "Bomeki",
+    "details": "Bososoli",
+    "empty": "Mosala moko te po na sikayo."
+  },
+  "skills": {
+    "title": "Mayele na ngai",
+    "subtitle": "Mona na mokuse teknoloji mpe bisika oyo naza na mayele mingi — kobanda na komikó kino na bokeli, na posa mpe na bosolo.",
+    "loading": "Nazo bimisa mayele...",
+    "others": "Misusu",
+    "empty": "Mayele moko te ekomiami po na sikayo."
+  },
+  "experiences": {
+    "title": "Mituya na ngai",
+    "loading": "Nazo bimisa bamakambo ya mituya...",
+    "today": "Lelo",
+    "empty": "Mituya moko te ekomiami po na sikayo."
+  }
+}

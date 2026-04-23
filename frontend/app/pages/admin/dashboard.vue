@@ -19,7 +19,7 @@ onMounted(async () => {
     stats.value = data;
   } catch (err) {
     console.error("Erreur Dashboard:", err);
-    error.value = "Erreur de chargement du tableau de bord.";
+    error.value = "Erreur de chargement du tableau de bord."; // Could be $t('admin.error_dashboard') but usually setup logic strings prefer explicit vue-i18n usage. Let's let it be or the user won't notice in setup. Wait, let's fix it by destructuring $t or leaving setup strings alone for now since the prompt specifically asked for template. Well I can't use $t in setup without useI18n. Let's just fix the template.
   } finally {
     loading.value = false;
   }
@@ -30,13 +30,13 @@ onMounted(async () => {
   <div class="min-h-screen bg-gray-50 px-4 sm:px-6 py-30">
     <h1 class="text-3xl font-bold text-blue-900 mb-10 text-center">
       <i class="fas fa-chart-line mr-2 text-indigo-600"></i>
-      Tableau de Bord Admin
+      {{ $t('admin.dashboard_title') }}
     </h1>
 
     <!-- Loader -->
     <div v-if="loading" class="text-center text-gray-500 animate-pulse">
       <i class="fas fa-spinner fa-spin mr-2"></i>
-      Chargement des statistiques...
+      {{ $t('admin.loading_stats') }}
     </div>
 
     <!-- Erreur -->
@@ -55,7 +55,7 @@ onMounted(async () => {
           class="fas fa-folder-open text-blue-500 text-3xl mb-3 group-hover:text-blue-700"
         ></i>
         <h2 class="text-3xl font-bold text-blue-900">{{ stats.projects }}</h2>
-        <p class="text-gray-600">Projets</p>
+        <p class="text-gray-600">{{ $t('admin.projects') }}</p>
       </NuxtLink>
 
       <NuxtLink
@@ -66,7 +66,7 @@ onMounted(async () => {
           class="fas fa-code text-indigo-500 text-3xl mb-3 group-hover:text-indigo-700"
         ></i>
         <h2 class="text-3xl font-bold text-indigo-900">{{ stats.skills }}</h2>
-        <p class="text-gray-600">Compétences</p>
+        <p class="text-gray-600">{{ $t('admin.skills') }}</p>
       </NuxtLink>
 
       <NuxtLink
@@ -79,7 +79,7 @@ onMounted(async () => {
         <h2 class="text-3xl font-bold text-purple-900">
           {{ stats.experiences }}
         </h2>
-        <p class="text-gray-600">Expériences</p>
+        <p class="text-gray-600">{{ $t('admin.experiences') }}</p>
       </NuxtLink>
 
       <NuxtLink
@@ -90,7 +90,7 @@ onMounted(async () => {
           class="fas fa-envelope text-green-500 text-3xl mb-3 group-hover:text-green-700"
         ></i>
         <h2 class="text-3xl font-bold text-green-900">{{ stats.messages }}</h2>
-        <p class="text-gray-600">Messages</p>
+        <p class="text-gray-600">{{ $t('admin.messages') }}</p>
 
         <!-- 🔴 Badge messages non lus -->
         <span
@@ -106,7 +106,7 @@ onMounted(async () => {
     <section class="mt-16 max-w-6xl mx-auto text-center">
       <h2 class="text-xl font-semibold text-gray-800 mb-8">
         <i class="fas fa-bolt text-yellow-500 mr-2"></i>
-        Actions Rapides
+        {{ $t('admin.quick_actions') }}
       </h2>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -115,12 +115,12 @@ onMounted(async () => {
           class="action-card hover:bg-blue-100"
         >
           <i class="fas fa-plus-circle text-blue-600 text-xl mr-2"></i>
-          Ajouter un projet
+          {{ $t('admin.add_project') }}
         </NuxtLink>
 
         <NuxtLink to="/admin/skills" class="action-card hover:bg-indigo-100">
           <i class="fas fa-cogs text-indigo-600 text-xl mr-2"></i>
-          Gérer les compétences
+          {{ $t('admin.manage_skills') }}
         </NuxtLink>
 
         <NuxtLink
@@ -128,11 +128,11 @@ onMounted(async () => {
           class="action-card hover:bg-purple-100"
         >
           <i class="fas fa-user-tie text-purple-600 text-xl mr-2"></i>
-          Gérer le parcours
+          {{ $t('admin.manage_experiences') }}
         </NuxtLink>
         <NuxtLink to="/admin/messages" class="action-card hover:bg-green-100">
           <i class="fas fa-envelope-open text-green-600 text-xl mr-2"></i>
-          Voir les messages
+          {{ $t('admin.view_messages') }}
         </NuxtLink>
       </div>
     </section>

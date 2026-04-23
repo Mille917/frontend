@@ -37,7 +37,7 @@ const submit = async () => {
 <template>
   <div class="max-w-4xl mx-auto py-20 px-6">
     <h1 class="text-3xl font-bold text-center text-blue-800 mb-12">
-      Me Contacter <i class="fas fa-envelope"></i>
+      {{ $t('contact.title') }} <i class="fas fa-envelope"></i>
     </h1>
 
     <div class="grid md:grid-cols-2 gap-10">
@@ -47,34 +47,34 @@ const submit = async () => {
         class="bg-white shadow-xl rounded-xl p-8 border"
       >
         <div class="mb-4">
-          <label class="text-gray-700 font-medium">Nom complet</label>
+          <label class="text-gray-700 font-medium">{{ $t('contact.fullname_label') }}</label>
           <input
             v-model="name"
             type="text"
             class="w-full mt-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-            placeholder="Votre nom"
+            :placeholder="$t('contact.fullname_placeholder')"
             required
           />
         </div>
 
         <div class="mb-4">
-          <label class="text-gray-700 font-medium">Email</label>
+          <label class="text-gray-700 font-medium">{{ $t('contact.email_label') }}</label>
           <input
             v-model="email"
             type="email"
             class="w-full mt-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-            placeholder="email@gmail.com"
+            :placeholder="$t('contact.email_placeholder')"
             required
           />
         </div>
       
         <div class="mb-4">
-          <label class="text-gray-700 font-medium">Message</label>
+          <label class="text-gray-700 font-medium">{{ $t('contact.message_label') }}</label>
           <textarea
             v-model="message"
             rows="5"
             class="w-full mt-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-indigo-500"
-            placeholder="Écrivez votre message..."
+            :placeholder="$t('contact.message_placeholder')"
             required
           />
         </div>
@@ -84,11 +84,11 @@ const submit = async () => {
           class="w-full bg-indigo-600 text-white py-3 rounded-lg font-medium hover:bg-indigo-800 transition disabled:opacity-50"
           :disabled="loading"
         >
-          {{ loading ? "Envoi en cours..." : "Envoyer le message" }}
+          {{ loading ? $t('contact.sending') : $t('contact.send_button') }}
         </button>
 
         <p v-if="success" class="text-green-600 text-center mt-4 font-semibold">
-          ✅ Merci ! Votre message a bien été envoyé.
+          {{ $t('contact.success_message') }}
         </p>
       </form>
 
@@ -96,9 +96,9 @@ const submit = async () => {
       <div
         class="flex flex-col justify-center bg-indigo-50 rounded-xl p-8 space-y-6 border border-indigo-200"
       >
-        <h2 class="text-xl font-semibold text-indigo-700">Informations</h2>
+        <h2 class="text-xl font-semibold text-indigo-700">{{ $t('contact.info_title') }}</h2>
         <p class="text-gray-700">
-          📍 Kinshasa, République Démocratique du Congo
+          {{ $t('contact.location') }}
         </p>
         <div class="icon-button space-y-4">
           <!--social media email-->
@@ -179,7 +179,7 @@ const submit = async () => {
         <p class="text-indigo-700 font-medium">
 
          <i class="fas fa-star"></i>
-           Disponible pour collaborations & missions freelance
+           {{ $t('contact.availability') }}
         </p>
       </div>
     </div>

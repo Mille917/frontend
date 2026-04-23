@@ -18,7 +18,26 @@ export default defineNuxtConfig({
     "@nuxt/test-utils",
     "@nuxt/ui",
     "@pinia/nuxt",
+    "@nuxtjs/i18n",
   ],
+
+  i18n: {
+    locales: [
+      { code: "fr", file: "fr.json", name: "Français" },
+      { code: "en", file: "en.json", name: "English" },
+      { code: "ln", file: "ln.json", name: "Lingala" },
+    ],
+    defaultLocale: "fr",
+    strategy: "prefix_except_default",
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: "i18n_redirected",
+      redirectOn: "root",
+      alwaysRedirect: true,
+    },
+    lazy: true,
+    langDir: "app/locales/",
+  },
 
   components: {
     dirs: ["~/components", "~/components/ui", "~/components/layouts"],

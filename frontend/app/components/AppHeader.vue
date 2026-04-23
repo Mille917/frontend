@@ -76,11 +76,11 @@ const closeMenu = () => {
 
         <!-- 🌐 Menu Desktop -->
         <ul class="hidden md:flex gap-6 text-gray-700 dark:text-gray-300">
-          <li><NuxtLink to="/" class="hover:text-blue-600">Accueil</NuxtLink></li>
-          <li><NuxtLink to="/projects" class="hover:text-blue-600">Projets</NuxtLink></li>
-          <li><NuxtLink to="/skills" class="hover:text-blue-600">Compétences</NuxtLink></li>
-          <li><NuxtLink to="/experiences" class="hover:text-blue-600">Parcours</NuxtLink></li>
-          <li><NuxtLink to="/contact" class="hover:text-blue-600">Contact</NuxtLink></li>
+          <li><NuxtLink to="/" class="hover:text-blue-600">{{ $t('nav.home') }}</NuxtLink></li>
+          <li><NuxtLink to="/projects" class="hover:text-blue-600">{{ $t('nav.projects') }}</NuxtLink></li>
+          <li><NuxtLink to="/skills" class="hover:text-blue-600">{{ $t('nav.skills') }}</NuxtLink></li>
+          <li><NuxtLink to="/experiences" class="hover:text-blue-600">{{ $t('nav.experiences') }}</NuxtLink></li>
+          <li><NuxtLink to="/contact" class="hover:text-blue-600">{{ $t('nav.contact') }}</NuxtLink></li>
         </ul>
 
         <!-- 📱 Bouton Hamburger (mobile) -->
@@ -99,11 +99,11 @@ const closeMenu = () => {
           class="md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700"
         >
           <ul class="flex flex-col p-4 space-y-4 text-gray-700 dark:text-gray-300">
-            <li><NuxtLink @click="closeMenu" to="/" class="mobile-link">Accueil</NuxtLink></li>
-            <li><NuxtLink @click="closeMenu" to="/projects" class="mobile-link">Projets</NuxtLink></li>
-            <li><NuxtLink @click="closeMenu" to="/skills" class="mobile-link">Compétences</NuxtLink></li>
-            <li><NuxtLink @click="closeMenu" to="/experiences" class="mobile-link">Parcours</NuxtLink></li>
-            <li><NuxtLink @click="closeMenu" to="/contact" class="mobile-link">Contact</NuxtLink></li>
+            <li><NuxtLink @click="closeMenu" to="/" class="mobile-link">{{ $t('nav.home') }}</NuxtLink></li>
+            <li><NuxtLink @click="closeMenu" to="/projects" class="mobile-link">{{ $t('nav.projects') }}</NuxtLink></li>
+            <li><NuxtLink @click="closeMenu" to="/skills" class="mobile-link">{{ $t('nav.skills') }}</NuxtLink></li>
+            <li><NuxtLink @click="closeMenu" to="/experiences" class="mobile-link">{{ $t('nav.experiences') }}</NuxtLink></li>
+            <li><NuxtLink @click="closeMenu" to="/contact" class="mobile-link">{{ $t('nav.contact') }}</NuxtLink></li>
           </ul>
         </div>
       </transition>

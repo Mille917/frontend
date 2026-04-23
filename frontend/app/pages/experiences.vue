@@ -50,7 +50,7 @@ onMounted(async () => {
       class="text-3xl font-bold text-center text-blue-900  mb-16 flex items-center justify-center gap-3"
     >
       <i class="fa-solid fa-road text-blue-600 "></i>
-      <span>Mon Parcours</span>
+      <span>{{ $t('experiences.title') }}</span>
     </h1>
 
     <!-- 🔹 Loader -->
@@ -59,7 +59,7 @@ onMounted(async () => {
       class="text-center text-gray-500 animate-pulse flex items-center justify-center gap-2"
     >
       <i class="fa-solid fa-spinner fa-spin text-blue-600"></i>
-      Chargement des expériences...
+      {{ $t('experiences.loading') }}
     </div>
 
     <!-- 🔹 Erreur -->
@@ -123,7 +123,7 @@ onMounted(async () => {
               v-else
               class="font-semibold text-green-600"
             >
-              Aujourd’hui
+              {{ $t('experiences.today') }}
             </span>
           </p>
           <!-- Description -->
@@ -140,7 +140,7 @@ onMounted(async () => {
       class="text-gray-500 text-center mt-10 flex items-center justify-center gap-2"
     >
       <i class="fa-regular fa-circle-xmark text-gray-400"></i>
-      Aucun parcours enregistré pour le moment.
+      {{ $t('experiences.empty') }}
     </p>
   </div>
 </template>

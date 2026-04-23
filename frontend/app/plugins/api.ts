@@ -35,5 +35,9 @@ export default defineNuxtPlugin((nuxtApp) => {
   );
 
   // ✅ Injection dans Nuxt
-  nuxtApp.provide("api", api);
+  return {
+    provide: {
+      api,
+    },
+  };
 });
