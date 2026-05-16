@@ -45,22 +45,24 @@ onMounted(() => loadExperiences());
 </script>
 
 <template>
-  <div class="min-h-screen bg-gray-50 py-24 px-6">
+  <div class="min-h-screen bg-gray-50 py-10 sm:py-20 px-4 sm:px-6">
     <!-- ✅ En-tête -->
     <div
       class="flex flex-col sm:flex-row justify-between items-center mb-8 max-w-6xl mx-auto gap-4"
     >
       <h1
-        class="text-3xl font-bold text-blue-900 flex items-center gap-2 text-center sm:text-left"
+        class="text-2xl sm:text-3xl font-bold text-blue-900 flex items-center gap-2 text-center sm:text-left"
       >
-        <i class="fas fa-briefcase text-blue-600"></i> Expériences
+        <i class="fas fa-briefcase text-blue-600"></i>
+        {{ $t('admin.manage_experiences_title') }}
       </h1>
 
       <NuxtLink
         to="/admin/experiences/new"
-        class="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition flex items-center gap-2 shadow"
+        class="w-full sm:w-auto bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition flex items-center justify-center gap-2 shadow"
       >
-        <i class="fas fa-plus"></i> Ajouter
+        <i class="fas fa-plus"></i>
+        {{ $t('admin.add_experience_btn') }}
       </NuxtLink>
     </div>
 
@@ -70,7 +72,7 @@ onMounted(() => loadExperiences());
       class="text-center text-gray-500 animate-pulse flex justify-center items-center gap-2"
     >
       <i class="fa-solid fa-spinner fa-spin"></i>
-      Chargement des expériences...
+      {{ $t('experiences.loading') }}
     </div>
 
     <p
@@ -89,7 +91,7 @@ onMounted(() => loadExperiences());
       <div
         v-for="exp in experiences"
         :key="exp.id"
-        class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition border border-gray-200"
+        class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition border border-gray-200 flex flex-col"
       >
         <h2 class="text-xl font-semibold text-blue-800 mb-1">
           {{ exp.title }}
@@ -108,24 +110,24 @@ onMounted(() => loadExperiences());
         </p>
         <p class="text-sm text-gray-500 mb-3">
           <i class="fa-regular fa-calendar mr-1 text-blue-500"></i>
-          {{ exp.startDate }} → {{ exp.endDate || "Aujourd’hui" }}
+          {{ exp.startDate }} → {{ exp.endDate || $t('experiences.today') }}
         </p>
-        <p class="text-sm text-gray-700 line-clamp-3">{{ exp.description }}</p>
+        <p class="text-sm text-gray-700 line-clamp-3 flex-1">{{ exp.description }}</p>
 
-        <div class="flex justify-between mt-4">
+        <div class="flex justify-between mt-4 pt-4 border-t border-gray-100">
           <NuxtLink
             :to="`/admin/experiences/${exp.id}`"
             class="text-yellow-600 hover:text-yellow-700"
-            title="Modifier"
+            :title="$t('admin.edit')"
           >
-            <i class="fas fa-edit"></i>
+            <i class="fas fa-edit"></i> {{ $t('admin.edit') }}
           </NuxtLink>
           <button
             @click="deleteExperience(exp.id)"
             class="text-red-600 hover:text-red-700"
-            title="Supprimer"
+            :title="$t('admin.delete')"
           >
-            <i class="fas fa-trash"></i>
+            <i class="fas fa-trash"></i> {{ $t('admin.delete') }}
           </button>
         </div>
       </div>
@@ -137,7 +139,7 @@ onMounted(() => loadExperiences());
       class="text-center text-gray-500 mt-8 flex items-center justify-center gap-2"
     >
       <i class="fa-regular fa-circle-xmark"></i>
-      Aucune expérience enregistrée.
+      {{ $t('admin.no_experiences_msg') }}
     </p>
 
     <!-- ✅ Retour -->
@@ -145,7 +147,8 @@ onMounted(() => loadExperiences());
       to="/admin/dashboard"
       class="block text-center text-blue-600 mt-10 hover:underline flex items-center justify-center gap-2"
     >
-      <i class="fas fa-arrow-left"></i> Retour au tableau de bord
+      <i class="fas fa-arrow-left"></i>
+      {{ $t('admin.back_to_dashboard') }}
     </NuxtLink>
   </div>
 </template>

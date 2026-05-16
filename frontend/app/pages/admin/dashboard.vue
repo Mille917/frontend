@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import axios from "axios";
+const { $api } = useNuxtApp();
 
 const stats = ref({
   projects: 0,
@@ -15,11 +15,11 @@ const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
-    const { data } = await axios.get("http://localhost:3333/api/dashboard");
+    const { data } = await $api.get("/dashboard");
     stats.value = data;
-  } catch (err) {
+  } catch (err: any) {
     console.error("Erreur Dashboard:", err);
-    error.value = "Erreur de chargement du tableau de bord."; // Could be $t('admin.error_dashboard') but usually setup logic strings prefer explicit vue-i18n usage. Let's let it be or the user won't notice in setup. Wait, let's fix it by destructuring $t or leaving setup strings alone for now since the prompt specifically asked for template. Well I can't use $t in setup without useI18n. Let's just fix the template.
+    error.value = err.response?.data?.message || "Erreur de chargement du tableau de bord.";
   } finally {
     loading.value = false;
   }

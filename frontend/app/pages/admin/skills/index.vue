@@ -31,34 +31,34 @@ onMounted(fetchSkills)
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto py-24 px-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
+  <div class="max-w-6xl mx-auto py-10 sm:py-20 px-4 sm:px-6 bg-gray-50 dark:bg-gray-900 min-h-screen">
     <!-- ✅ En-tête -->
     <div
       class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8"
     >
       <h1
-        class="text-3xl font-bold text-blue-900 flex items-center gap-3 text-center sm:text-left"
+        class="text-2xl sm:text-3xl font-bold text-blue-900 flex items-center gap-3 text-center sm:text-left"
       >
         <i class="fa-solid fa-brain text-blue-700"></i>
-        Gestion des compétences
+        {{ $t('admin.manage_skills_title') }}
       </h1>
 
       <NuxtLink
         to="/admin/skills/create"
-        class="flex items-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
+        class="w-full sm:w-auto flex items-center justify-center gap-2 bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition"
       >
         <i class="fa-solid fa-plus"></i>
-        Ajouter
+        {{ $t('admin.add_skill_btn') }}
       </NuxtLink>
     </div>
 
     <!-- ✅ Loader -->
     <div
-      v-if="pending"
+      v-if="loading"
       class="flex justify-center items-center text-gray-500 py-12"
     >
       <i class="fa-solid fa-spinner fa-spin mr-2"></i>
-      Chargement des compétences...
+      {{ $t('skills.loading') }}
     </div>
 
     <!-- ✅ Erreur -->
@@ -69,6 +69,7 @@ onMounted(fetchSkills)
       <i class="fa-solid fa-triangle-exclamation"></i>
       {{ error }}
     </p>
+
     <!-- ✅ Table responsive -->
     <div
       v-if="skills && skills.length"
@@ -79,10 +80,10 @@ onMounted(fetchSkills)
           class="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200"
         >
           <tr>
-            <th class="p-4 font-semibold">Nom</th>
-            <th class="p-4 font-semibold">Catégorie</th>
-            <th class="p-4 font-semibold text-center">Niveau</th>
-            <th class="p-4 font-semibold text-center">Actions</th>
+            <th class="p-4 font-semibold">{{ $t('admin.name_col') }}</th>
+            <th class="p-4 font-semibold">{{ $t('admin.category_col') }}</th>
+            <th class="p-4 font-semibold text-center">{{ $t('admin.level_col') }}</th>
+            <th class="p-4 font-semibold text-center">{{ $t('admin.actions_col') }}</th>
           </tr>
         </thead>
 
@@ -92,7 +93,7 @@ onMounted(fetchSkills)
             :key="skill.id"
             class="border-t bg-gray-50 dark:bg-gray-700"
           >
-            <td class="p-4 font-medium text-gray-900 dark:text-white">
+            <td class="p-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">
               <i class="fa-solid fa-lightbulb text-yellow-400 mr-2"></i>
               {{ skill.name }}
             </td>
@@ -103,14 +104,14 @@ onMounted(fetchSkills)
             <td class="p-4 text-center">
               <div class="flex flex-col items-center">
                 <div
-                  class="w-24 sm:w-32 bg-gray-200 dark:bg-gray-600 rounded-full h-2 mb-1 overflow-hidden"
+                  class="w-20 sm:w-32 bg-gray-200 dark:bg-gray-600 rounded-full h-2 mb-1 overflow-hidden"
                 >
                   <div
                     class="bg-blue-600 h-2 rounded-full transition-all"
                     :style="{ width: skill.level + '%' }"
                   ></div>
                 </div>
-                <span class="text-sm text-gray-500 dark:text-gray-300">
+                <span class="text-xs sm:text-sm text-gray-500 dark:text-gray-300">
                   {{ skill.level }}%
                 </span>
               </div>
@@ -119,14 +120,14 @@ onMounted(fetchSkills)
               <NuxtLink
                 :to="`/admin/skills/${skill.id}`"
                 class="text-yellow-600 hover:text-yellow-700 transition"
-                title="Modifier"
+                :title="$t('admin.edit')"
               >
                 <i class="fa-solid fa-pen-to-square"></i>
               </NuxtLink>
               <button
                 @click="deleteSkill(skill.id)"
                 class="text-red-600 hover:text-red-700 transition"
-                title="Supprimer"
+                :title="$t('admin.delete')"
               >
                 <i class="fa-solid fa-trash-can"></i>
               </button>
@@ -137,9 +138,9 @@ onMounted(fetchSkills)
     </div>
 
     <!-- ✅ Aucun résultat -->
-    <p v-else-if="!pending" class="text-gray-500 text-center mt-10">
+    <p v-else-if="!loading" class="text-gray-500 text-center mt-10">
       <i class="fa-solid fa-circle-info mr-2 text-blue-600"></i>
-      Aucune compétence enregistrée.
+      {{ $t('admin.no_skills_msg') }}
     </p>
 
     <!-- ✅ Retour -->
@@ -148,7 +149,7 @@ onMounted(fetchSkills)
       class="block text-center text-blue-600 mt-8 hover:underline flex items-center justify-center gap-2"
     >
       <i class="fa-solid fa-gauge"></i>
-      Retour au tableau de bord
+      {{ $t('admin.back_to_dashboard') }}
     </NuxtLink>
   </div>
 </template>

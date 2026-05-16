@@ -47,24 +47,24 @@ onMounted(() => loadProjects());
 </script>
 
 <template>
-  <div class="max-w-6xl mx-auto py-20 px-6">
+  <div class="max-w-6xl mx-auto py-10 sm:py-20 px-4 sm:px-6">
     <!-- ✅ En-tête -->
     <div
       class="flex flex-col sm:flex-row justify-between items-center mb-10 gap-4"
     >
       <h1
-        class="text-3xl font-bold text-blue-900 flex items-center gap-2 text-center sm:text-left"
+        class="text-2xl sm:text-3xl font-bold text-blue-900 flex items-center gap-2 text-center sm:text-left"
       >
         <i class="fa-solid fa-folder-open text-blue-700"></i>
-        Gestion des Projets
+        {{ $t('admin.manage_projects_title') }}
       </h1>
 
       <NuxtLink
         to="/admin/projects/new"
-        class="bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition flex items-center gap-2"
+        class="w-full sm:w-auto bg-blue-600 text-white px-5 py-2 rounded-lg shadow hover:bg-blue-700 transition flex items-center justify-center gap-2"
       >
         <i class="fa-solid fa-plus"></i>
-        Nouveau Projet
+        {{ $t('admin.new_project_btn') }}
       </NuxtLink>
     </div>
 
@@ -74,7 +74,7 @@ onMounted(() => loadProjects());
       class="text-center text-gray-500 animate-pulse flex items-center justify-center gap-2"
     >
       <i class="fa-solid fa-spinner fa-spin"></i>
-      Chargement des projets...
+      {{ $t('projects.loading') }}
     </p>
 
     <p
@@ -106,23 +106,23 @@ onMounted(() => loadProjects());
             {{ p.title }}
           </h3>
           <div
-            class="text-gray-600 text-sm line-clamp-3"
+            class="text-gray-600 text-sm line-clamp-3 mb-4"
             v-html="p.description"
           ></div>
 
-          <div class="flex justify-between items-center pt-3 mt-3">
+          <div class="flex justify-between items-center pt-3 mt-auto border-t border-gray-100">
             <NuxtLink
               :to="`/admin/projects/${p.id}`"
               class="text-yellow-600 hover:text-yellow-700 text-sm font-medium flex items-center gap-1 transition"
             >
-              <i class="fa-solid fa-pen-to-square"></i> Modifier
+              <i class="fa-solid fa-pen-to-square"></i> {{ $t('admin.edit') }}
             </NuxtLink>
 
             <button
               @click="deleteProject(p.id)"
               class="text-red-700 hover:text-red-500 text-sm font-medium flex items-center gap-1 transition"
             >
-              <i class="fa-solid fa-trash-can"></i> Supprimer
+              <i class="fa-solid fa-trash-can"></i> {{ $t('admin.delete') }}
             </button>
           </div>
         </div>
@@ -135,7 +135,7 @@ onMounted(() => loadProjects());
       class="text-center text-gray-500 mt-8 flex items-center justify-center gap-2"
     >
       <i class="fa-regular fa-circle-xmark"></i>
-      Aucun projet enregistré.
+      {{ $t('admin.no_projects_msg') }}
     </p>
 
     <!-- ✅ Retour -->
@@ -144,7 +144,7 @@ onMounted(() => loadProjects());
       class="block text-center text-blue-600 mt-10 hover:underline flex items-center justify-center gap-2"
     >
       <i class="fa-solid fa-arrow-left"></i>
-      Retour au tableau de bord
+      {{ $t('admin.back_to_dashboard') }}
     </NuxtLink>
   </div>
 </template>
