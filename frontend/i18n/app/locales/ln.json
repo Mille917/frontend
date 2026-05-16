@@ -1,0 +1,99 @@
+{
+  "nav": {
+    "home": "Ndaku",
+    "about": "Ezo nyoso",
+    "projects": "Misala",
+    "experiences": "Experiences",
+    "skills": "Lolenge",
+    "contact": "Kontaki",
+    "admin": "Mokonzi",
+    "logout": "Longola",
+    "login": "Kota"
+  },
+  "home": {
+    "title": "Welele na Portfolio na ngai",
+    "subtitle": "Mozalaki ya Software",
+    "cta": "Tala misala na ngai"
+  },
+  "projects": {
+    "title": "Misala",
+    "description": "Ezali misala ya koli na koli oyo nastaki",
+    "viewProject": "Tala Misala",
+    "viewCode": "Tala Code",
+    "liveDemo": "Tala na Internet",
+    "noProjects": "Ba projet eza te"
+  },
+  "experiences": {
+    "title": "Titre",
+    "description": "Nzela ya mosala na ngai",
+    "from": "Waya",
+    "to": "Kino",
+    "current": "Sikomu",
+    "noExperiences": "Mabe eloko te"
+  },
+  "skills": {
+    "title": "Lolenge",
+    "description": "Tekinoloji mpe lolenge oyo nasalaka na yango",
+    "noSkills": "Lolenge eloko te"
+  },
+  "contact": {
+    "title": "Kontaki Ngai",
+    "description": "Bolaka te kuna kontaki",
+    "name": "Kombo",
+    "email": "Email",
+    "message": "Liloba",
+    "send": "Tuma",
+    "sending": "Batumaka...",
+    "success": "Liloba etumaki malamu!",
+    "error": "Erro na ntuma liloba. Andimi likambo.",
+    "namePlaceholder": "Kombo na yo",
+    "emailPlaceholder": "email@example.com",
+    "messagePlaceholder": "Liloba na yo...",
+    "noMessages": "Liloba eloko te"
+  },
+  "login": {
+    "title": "Kota",
+    "email": "Email",
+    "password": "Moiniti",
+    "login": "Kota",
+    "signup": "Bangisa",
+    "forgotPassword": "Wali moiniti?",
+    "noAccount": "Moto eloko te?",
+    "haveAccount": "Wewe ozali na moto?",
+    "emailPlaceholder": "email@example.com",
+    "passwordPlaceholder": "Moiniti na yo",
+    "invalidCredentials": "Email to moiniti ezali malamu te",
+    "loginSuccess": "Kotaki malamu!",
+    "loginError": "Erro na kota"
+  },
+  "admin": {
+    "title": "Tabliyoyi ya Mokonzi",
+    "projects": "Fula Misala",
+    "experiences": "Fula Mabe",
+    "skills": "Fula Lolenge",
+    "messages": "Liloba",
+    "users": "Batu",
+    "edit": "Sukolela",
+    "delete": "Funa",
+    "add": "Zonga",
+    "save": "Mwinda",
+    "cancel": "Ata te",
+    "deleteConfirm": "Osengeli malamu kuna funa yango?",
+    "noItems": "Eloko te"
+  },
+  "common": {
+    "loading": "Batumaka...",
+    "error": "Erro eloko",
+    "success": "Malamu",
+    "back": "Longola",
+    "next": "Osala",
+    "previous": "Libala",
+    "close": "Funa",
+    "search": "Solola",
+    "filter": "Salela",
+    "sort": "Salela",
+    "date": "Motuka",
+    "action": "Mosala",
+    "noData": "Maxandidata te"
+  }
+}
