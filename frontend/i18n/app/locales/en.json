@@ -47,7 +47,7 @@
     "success": "Message sent successfully!",
     "error": "Error sending message. Please try again.",
     "namePlaceholder": "Your name",
-    "emailPlaceholder": "your.email@example.com",
+    "emailPlaceholder": "your email@example.com",
     "messagePlaceholder": "Your message here...",
     "noMessages": "No messages yet"
   },
@@ -60,7 +60,7 @@
     "forgotPassword": "Forgot password?",
     "noAccount": "Don't have an account?",
     "haveAccount": "Already have an account?",
-    "emailPlaceholder": "your.email@example.com",
+    "emailPlaceholder": "your email@example.com",
     "passwordPlaceholder": "Your password",
     "invalidCredentials": "Invalid email or password",
     "loginSuccess": "Login successful!",

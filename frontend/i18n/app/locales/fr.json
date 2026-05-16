@@ -47,7 +47,7 @@
     "success": "Message envoyé avec succès!",
     "error": "Erreur lors de l'envoi du message. Veuillez réessayer.",
     "namePlaceholder": "Votre nom",
-    "emailPlaceholder": "votre.email@example.com",
+    "emailPlaceholder": "votre email@example.com",
     "messagePlaceholder": "Votre message ici...",
     "noMessages": "Aucun message pour le moment"
   },
@@ -60,7 +60,7 @@
     "forgotPassword": "Mot de passe oublié?",
     "noAccount": "Pas encore de compte?",
     "haveAccount": "Vous avez déjà un compte?",
-    "emailPlaceholder": "votre.email@example.com",
+    "emailPlaceholder": "votre email@example.com",
     "passwordPlaceholder": "Votre mot de passe",
     "invalidCredentials": "Email ou mot de passe invalide",
     "loginSuccess": "Connexion réussie!",
