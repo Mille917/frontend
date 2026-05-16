@@ -13,9 +13,12 @@ const dbConfig = defineConfig({
         password: env.get('DB_PASSWORD'),
         database: env.get('DB_DATABASE'),
         // On active le SSL si on est en production ou si l'hôte est Neon/Render
-        ssl: env.get('NODE_ENV') === 'production' || env.get('DB_HOST')?.includes('neon.tech') || env.get('DB_HOST')?.includes('render.com') 
-          ? { rejectUnauthorized: false } 
-          : false,
+        ssl:
+          env.get('NODE_ENV') === 'production' ||
+          env.get('DB_HOST')?.includes('neon.tech') ||
+          env.get('DB_HOST')?.includes('render.com')
+            ? { rejectUnauthorized: false }
+            : false,
       },
       migrations: {
         naturalSort: true,
