@@ -1,9 +1,7 @@
 <template>
   <NuxtLayout>
     <AppHeader />
-    <Transition name="fade" mode="out-in">
-      <NuxtPage />
-    </Transition>
+    <NuxtPage />
     <AppFooter />
   </NuxtLayout>
 </template>

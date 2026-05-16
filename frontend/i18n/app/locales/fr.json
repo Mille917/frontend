@@ -13,7 +13,13 @@
   "home": {
     "title": "Bienvenue sur mon Portfolio",
     "subtitle": "Développeur Full Stack",
-    "cta": "Découvrez mon travail"
+    "cta": "Découvrez mon travail",
+    "meta_description": "Mon portfolio personnel présentant mes projets, expériences et compétences",
+    "welcome": "Bienvenue sur mon portfolio",
+    "view_projects": "Voir mes projets",
+    "tools": "Outils et Technologies",
+    "journey": "Mon parcours",
+    "work_together": "Travaillons ensemble"
   },
   "projects": {
     "title": "Projets",
@@ -21,7 +27,8 @@
     "viewProject": "Voir le projet",
     "viewCode": "Voir le code",
     "liveDemo": "Démo en direct",
-    "noProjects": "Aucun projet pour le moment"
+    "noProjects": "Aucun projet pour le moment",
+    "loading": "Chargement des projets..."
   },
   "experiences": {
     "title": "Expériences Professionnelles",
@@ -47,9 +54,19 @@
     "success": "Message envoyé avec succès!",
     "error": "Erreur lors de l'envoi du message. Veuillez réessayer.",
     "namePlaceholder": "Votre nom",
-    "emailPlaceholder": "votre email@example.com",
+    "emailPlaceholder": "votre email",
     "messagePlaceholder": "Votre message ici...",
-    "noMessages": "Aucun message pour le moment"
+    "noMessages": "Aucun message pour le moment",
+    "fullname_label": "Nom complet",
+    "fullname_placeholder": "Entrez votre nom complet",
+    "email_label": "Adresse e-mail",
+    "email_placeholder": "votre email",
+    "message_label": "Message",
+    "message_placeholder": "Entrez votre message ici...",
+    "send_button": "Envoyer le message",
+    "info_title": "Informations de contact",
+    "location": "Localisation",
+    "availability": "Disponibilité"
   },
   "login": {
     "title": "Connexion",
@@ -60,7 +77,7 @@
     "forgotPassword": "Mot de passe oublié?",
     "noAccount": "Pas encore de compte?",
     "haveAccount": "Vous avez déjà un compte?",
-    "emailPlaceholder": "votre email@example.com",
+    "emailPlaceholder": "votre email",
     "passwordPlaceholder": "Votre mot de passe",
     "invalidCredentials": "Email ou mot de passe invalide",
     "loginSuccess": "Connexion réussie!",
@@ -95,5 +112,8 @@
     "date": "Date",
     "action": "Action",
     "noData": "Aucune donnée disponible"
+  },
+  "footer": {
+    "rights": "© 2025 Tous droits réservés"
   }
 }

@@ -13,7 +13,13 @@
   "home": {
     "title": "Welele na Portfolio na ngai",
     "subtitle": "Mozalaki ya Software",
-    "cta": "Tala misala na ngai"
+    "cta": "Tala misala na ngai",
+    "meta_description": "Portfolio na ngai oyo epesaka elenge na misala, mabe mpe lolenge na ngai",
+    "welcome": "Welele na Portfolio na ngai",
+    "view_projects": "Tala misala na ngai",
+    "tools": "Mayele mpe Tekinoloji",
+    "journey": "Nzela na ngai",
+    "work_together": "Tosalela elongo"
   },
   "projects": {
     "title": "Misala",
@@ -21,7 +27,8 @@
     "viewProject": "Tala Misala",
     "viewCode": "Tala Code",
     "liveDemo": "Tala na Internet",
-    "noProjects": "Ba projet eza te"
+    "noProjects": "Ba projet eza te",
+    "loading": "Batumaka misala..."
   },
   "experiences": {
     "title": "Experiences",
@@ -47,9 +54,19 @@
     "success": "Liloba etumaki malamu!",
     "error": "Erro na ntuma liloba. Andimi likambo.",
     "namePlaceholder": "Kombo na yo",
-    "emailPlaceholder": "email@example.com",
+    "emailPlaceholder": "Email na yo",
     "messagePlaceholder": "Liloba na yo...",
-    "noMessages": "Liloba eloko te"
+    "noMessages": "Liloba eloko te",
+    "fullname_label": "Kombo mobimba",
+    "fullname_placeholder": "Koma kombo na yo mobimba",
+    "email_label": "Adrese Email",
+    "email_placeholder": "email-na-yo{'@'}example-com",
+    "message_label": "Liloba",
+    "message_placeholder": "Koma liloba na yo awa...",
+    "send_button": "Tuma Liloba",
+    "info_title": "Mayele ya Kontaki",
+    "location": "Esika",
+    "availability": "Ndoto ya Eza"
   },
   "login": {
     "title": "Kota",
@@ -60,7 +77,7 @@
     "forgotPassword": "Wali moiniti?",
     "noAccount": "Moto eloko te?",
     "haveAccount": "Wewe ozali na moto?",
-    "emailPlaceholder": "email@example.com",
+    "emailPlaceholder": "Email na yo",
     "passwordPlaceholder": "Moiniti na yo",
     "invalidCredentials": "Email to moiniti ezali malamu te",
     "loginSuccess": "Kotaki malamu!",
@@ -93,7 +110,10 @@
     "filter": "Salela",
     "sort": "Salela",
     "date": "Motuka",
-    "action": "Mosala",
-    "noData": "Maxandidata te"
+    "action": "Sala",
+    "noData": "Ba donnée eza te"
+  },
+  "footer": {
+    "rights": "© 2025 Makoki na biso nkoto nyonso"
   }
 }

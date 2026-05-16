@@ -13,7 +13,13 @@
   "home": {
     "title": "Welcome to my Portfolio",
     "subtitle": "Full Stack Developer",
-    "cta": "Explore my work"
+    "cta": "Explore my work",
+    "meta_description": "My personal portfolio showcasing my projects, experiences and skills",
+    "welcome": "Welcome to my portfolio",
+    "view_projects": "View my projects",
+    "tools": "Tools and Technologies",
+    "journey": "My journey",
+    "work_together": "Let's work together"
   },
   "projects": {
     "title": "Projects",
@@ -21,7 +27,8 @@
     "viewProject": "View Project",
     "viewCode": "View Code",
     "liveDemo": "Live Demo",
-    "noProjects": "No projects yet"
+    "noProjects": "No projects yet",
+    "loading": "Loading projects..."
   },
   "experiences": {
     "title": "Professional Experiences",
@@ -47,9 +54,19 @@
     "success": "Message sent successfully!",
     "error": "Error sending message. Please try again.",
     "namePlaceholder": "Your name",
-    "emailPlaceholder": "your email@example.com",
+    "emailPlaceholder": "your email",
     "messagePlaceholder": "Your message here...",
-    "noMessages": "No messages yet"
+    "noMessages": "No messages yet",
+    "fullname_label": "Full Name",
+    "fullname_placeholder": "Enter your full name",
+    "email_label": "Email Address",
+    "email_placeholder": "your email",
+    "message_label": "Message",
+    "message_placeholder": "Enter your message here...",
+    "send_button": "Send Message",
+    "info_title": "Contact Information",
+    "location": "Location",
+    "availability": "Availability"
   },
   "login": {
     "title": "Login",
@@ -60,7 +77,7 @@
     "forgotPassword": "Forgot password?",
     "noAccount": "Don't have an account?",
     "haveAccount": "Already have an account?",
-    "emailPlaceholder": "your email@example.com",
+    "emailPlaceholder": "your email",
     "passwordPlaceholder": "Your password",
     "invalidCredentials": "Invalid email or password",
     "loginSuccess": "Login successful!",
@@ -95,5 +112,8 @@
     "date": "Date",
     "action": "Action",
     "noData": "No data available"
+  },
+  "footer": {
+    "rights": "© 2025 All rights reserved"
   }
 }

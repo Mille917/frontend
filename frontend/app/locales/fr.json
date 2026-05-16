@@ -58,7 +58,7 @@
     "fullname_label": "Nom complet",
     "fullname_placeholder": "Votre nom",
     "email_label": "Email",
-    "email_placeholder": "email@gmail.com",
+    "email_placeholder": "email{'@'}gmail.com",
     "message_label": "Message",
     "message_placeholder": "Écrivez votre message...",
     "sending": "Envoi en cours...",
