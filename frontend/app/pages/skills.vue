@@ -27,11 +27,10 @@ onMounted(async () => {
         class="text-4xl font-extrabold text-blue-900 flex items-center justify-center gap-3"
       >
         <i class="fa-solid fa-laptop-code text-indigo-600"></i>
-        Mes Compétences
+        {{ $t('skills.title') }}
       </h1>
       <p class="text-gray-500 mt-3 max-w-2xl mx-auto">
-        Un aperçu des technologies et domaines dans lesquels j’excelle — du code
-        à la conception, avec passion et précision.
+        {{ $t('skills.subtitle') }}
       </p>
     </div>
 
@@ -41,7 +40,7 @@ onMounted(async () => {
       class="text-center text-gray-500 animate-pulse flex items-center justify-center gap-2"
     >
       <i class="fa-solid fa-spinner fa-spin text-indigo-600"></i>
-      <span>Chargement des compétences...</span>
+      <span>{{ $t('skills.loading') }}</span>
     </div>
 
     <!-- 🔹 Erreur -->
@@ -86,7 +85,7 @@ onMounted(async () => {
           class="text-sm text-gray-500 mb-4 relative z-10 flex items-center gap-2"
         >
           <i class="fa-solid fa-layer-group text-indigo-500"></i>
-          {{ skill.category || "Autres" }}
+          {{ skill.category || $t('skills.others') }}
         </p>
 
         <!-- Barre de progression -->
@@ -111,7 +110,7 @@ onMounted(async () => {
       class="text-gray-500 text-center mt-10 flex items-center justify-center gap-2"
     >
       <i class="fa-regular fa-circle-xmark text-gray-400"></i>
-      Aucune compétence enregistrée pour le moment.
+      {{ $t('skills.empty') }}
     </p>
   </div>
 </template>

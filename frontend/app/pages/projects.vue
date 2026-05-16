@@ -40,7 +40,7 @@ onMounted(async () => {
       class="text-3xl font-bold text-center text-blue-900 mb-12 flex items-center justify-center gap-3"
     >
       <i class="fa-solid fa-folder-tree text-blue-700"></i>
-      <span>Mes Projets</span>
+      <span>{{ $t('projects.title') }}</span>
     </h1>
 
     <!-- 🔹 Loader -->
@@ -49,7 +49,7 @@ onMounted(async () => {
       class="text-center text-gray-500 animate-pulse flex items-center justify-center gap-2"
     >
       <i class="fa-solid fa-spinner fa-spin text-blue-600"></i>
-      <span>Chargement des projets...</span>
+      <span>{{ $t('projects.loading') }}</span>
     </div>
 
     <!-- 🔹 Erreur -->
@@ -107,7 +107,7 @@ onMounted(async () => {
                 class="flex items-center gap-1 text-gray-700 hover:text-gray-900 transition text-sm font-medium"
               >
                 <i class="fa-brands fa-github"></i>
-                Code
+                {{ $t('projects.code') }}
               </a>
 
               <a
@@ -117,7 +117,7 @@ onMounted(async () => {
                 class="flex items-center gap-1 text-blue-600 hover:text-blue-800 transition text-sm font-medium"
               >
                 <i class="fa-solid fa-up-right-from-square"></i>
-                Démo
+                {{ $t('projects.demo') }}
               </a>
             </div>
 
@@ -127,7 +127,7 @@ onMounted(async () => {
               class="text-sm text-indigo-600 hover:text-indigo-800 font-medium flex items-center gap-1 transition"
             >
               <i class="fa-solid fa-eye"></i>
-              Détails
+              {{ $t('projects.details') }}
             </NuxtLink>
           </div>
         </div>
@@ -140,7 +140,7 @@ onMounted(async () => {
       class="text-gray-500 text-center mt-10 flex items-center justify-center gap-2"
     >
       <i class="fa-regular fa-circle-xmark text-gray-400"></i>
-      Aucun projet pour le moment.
+      {{ $t('projects.empty') }}
     </p>
   </div>
 </template>

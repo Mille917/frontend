@@ -114,7 +114,7 @@ const setActive = (id: string) => {
 const fetchUnreadMessages = async () => {
   try {
     const { data } = await axios.get(`${apiBase}/api/contacts`);
-    unreadCount.value = data.filter((m: any) => !m.is_read).length;
+    unreadCount.value = data.filter((m: any) => !(m.isRead ?? m.is_read)).length;
   } catch (err) {
     console.error("Erreur chargement messages non lus:", err);
   }

@@ -1,0 +1,92 @@
+{
+  "admin": {
+    "dashboard": "Dashboard",
+    "dashboard_title": "Admin Dashboard",
+    "loading_stats": "Loading statistics...",
+    "error_dashboard": "Error loading the dashboard.",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experiences": "Experiences",
+    "quick_actions": "Quick Actions",
+    "add_project": "Add a project",
+    "manage_skills": "Manage skills",
+    "manage_experiences": "Manage timeline",
+    "view_messages": "View messages",
+    "messages": "Messages",
+    "back_to_dashboard": "Back to dashboard",
+    "no_messages": "No messages received right now 📭"
+  },
+  "messages": {
+    "title": "Received messages",
+    "received": "Received on",
+    "read": "Read",
+    "unread": "Unread",
+    "delete": "Delete",
+    "read_verb": "Read",
+    "loading": "Loading messages...",
+    "error_loading": "Error loading messages."
+  },
+  "cart": {
+    "title": "Your Cart",
+    "empty": "Your cart is empty.",
+    "total": "Total:",
+    "checkout": "Checkout",
+    "currency": "FC"
+  },
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "experiences": "Experience",
+    "contact": "Contact"
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  },
+  "home": {
+    "title": "Portfolio — Raïssa Bomboko",
+    "meta_description": "Discover my skills and projects",
+    "subtitle": "Full Stack Developer • Tech Enthusiast",
+    "view_projects": "View my projects",
+    "welcome": "Welcome to my portfolio! I am delighted to share my skills, experience, and projects with you. Feel free to explore the different sections to learn more about my background and achievements.",
+    "tools": "Discover my technical toolbox",
+    "journey": "My evolution in the field",
+    "work_together": "Let's work together"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "fullname_label": "Full Name",
+    "fullname_placeholder": "Your name",
+    "email_label": "Email",
+    "email_placeholder": "email@gmail.com",
+    "message_label": "Message",
+    "message_placeholder": "Write your message...",
+    "sending": "Sending...",
+    "send_button": "Send Message",
+    "success_message": "✅ Thank you! Your message has been sent successfully.",
+    "info_title": "Information",
+    "location": "📍 Kinshasa, Democratic Republic of Congo",
+    "availability": "Available for collaborations & freelance missions"
+  },
+  "projects": {
+    "title": "My Projects",
+    "loading": "Loading projects...",
+    "code": "Code",
+    "demo": "Demo",
+    "details": "Details",
+    "empty": "No projects at the moment."
+  },
+  "skills": {
+    "title": "My Skills",
+    "subtitle": "An overview of the technologies and areas in which I excel — from code to design, with passion and precision.",
+    "loading": "Loading skills...",
+    "others": "Others",
+    "empty": "No skills recorded at the moment."
+  },
+  "experiences": {
+    "title": "My Experience",
+    "loading": "Loading experiences...",
+    "today": "Today",
+    "empty": "No experience recorded at the moment."
+  }
+}

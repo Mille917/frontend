@@ -5,28 +5,30 @@ WORKDIR /app
 
 # Install dependencies
 COPY package*.json ./
-RUN npm install
+RUN npm ci
 
 # Copy the rest of the application
 COPY . .
 
-# Build the app (creates /build folder)
-RUN npm run build
+# Run the Adonis build command
+RUN node ace build
+
 
 # Stage 2: Production runner
 FROM node:20-alpine
 
 WORKDIR /app
 
-# Copy only necessary files from builder
+# Copy the built files from the builder stage
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/node_modules ./node_modules
-COPY package*.json ./
+COPY --from=builder /app/package*.json ./
 
+# Set the environment variables for production
 ENV NODE_ENV=production
-ENV PORT=3333
-ENV HOST=0.0.0.0
 
+# Expose the Adonis port
 EXPOSE 3333
 
-CMD ["node", "build/server.js"]
+# Start the application using the correct path to the compiled server.js
+CMD ["node", "build/bin/server.js"]

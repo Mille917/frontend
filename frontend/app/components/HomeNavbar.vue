@@ -8,10 +8,10 @@
         </NuxtLink>
 
         <ul class="flex gap-6 font-medium">
-          <li><NuxtLink class="text-indigo-800 hover:text-blue-700" to="/projects">Projets</NuxtLink></li>
-          <li><NuxtLink class="text-indigo-800 hover:text-blue-700" to="/skills">Compétences</NuxtLink></li>
-          <li><NuxtLink class="text-indigo-800 hover:text-blue-700" to="/experiences">Parcours</NuxtLink></li>
-          <li><NuxtLink class="text-indigo-800 hover:text-blue-700" to="/contact">Contact</NuxtLink></li>
+          <li><NuxtLink class="text-indigo-800 hover:text-blue-700" to="/projects">{{ $t('nav.projects') }}</NuxtLink></li>
+          <li><NuxtLink class="text-indigo-800 hover:text-blue-700" to="/skills">{{ $t('nav.skills') }}</NuxtLink></li>
+          <li><NuxtLink class="text-indigo-800 hover:text-blue-700" to="/experiences">{{ $t('nav.experiences') }}</NuxtLink></li>
+          <li><NuxtLink class="text-indigo-800 hover:text-blue-700" to="/contact">{{ $t('nav.contact') }}</NuxtLink></li>
         </ul>
       </nav>
     </header>

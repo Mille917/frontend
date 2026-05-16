@@ -1,13 +1,14 @@
 <script setup lang="ts">
+const { t } = useI18n();
 
 const { data: home } = await useAsyncData(() =>
   queryCollection("content").path("/").first()
 );
 
 useSeoMeta({
-  title: home.value?.title || "Portfolio — Raïssa Bomboko",
+  title: home.value?.title || t('home.title'),
   description:
-    home.value?.description || "Découvrez mes compétences et projets",
+    home.value?.description || t('home.meta_description'),
 });
 </script>
 
@@ -29,13 +30,13 @@ useSeoMeta({
         <div>
           <h1 class="text-4xl font-bold">Raïssa Bomboko</h1>
           <p class="text-lg opacity-90 mt-2">
-            Développeuse Full Stack • Passionnée de technologies
+            {{ $t('home.subtitle') }}
           </p>
           <NuxtLink
             to="/projects"
             class="inline-block mt-6 bg-white text-indigo-700 px-6 py-3 rounded-lg font-medium shadow-md hover:bg-gray-800 hover:text-amber-50 transition-colors duration-600"
           >
-            Voir mes projets <i class="fas fa-rocket"></i>
+            {{ $t('home.view_projects') }} <i class="fas fa-rocket"></i>
           </NuxtLink>
         </div>
       </div>
@@ -43,10 +44,7 @@ useSeoMeta({
     <section class="border-b border-gray-300 mb-12">
       <div class="max-w-6xl mx-auto px-6 py-4 text-center text-gray-700">
         <p>
-          Bienvenue sur mon portfolio ! Je suis ravie de partager avec vous mes
-          compétences, expériences et projets. N'hésitez pas à explorer les
-          différentes sections pour en savoir plus sur mon parcours et mes
-          réalisations.
+          {{ $t('home.welcome') }}
         </p>
       </div>
     </section>
@@ -61,10 +59,10 @@ useSeoMeta({
         <h2
           class="text-xl font-semibold text-blue-900 mb-3 group-hover:text-blue-700 transition"
         >
-          Compétences
+          {{ $t('nav.skills') }}
         </h2>
         <p class="text-gray-600 group-hover:text-blue-600 transition">
-          Découvrez ma boîte à outils technique
+          {{ $t('home.tools') }}
         </p>
       </NuxtLink>
 
@@ -75,10 +73,10 @@ useSeoMeta({
         <h2
           class="text-xl font-semibold text-blue-900 mb-3 group-hover:text-blue-700 transition"
         >
-          Parcours
+          {{ $t('nav.experiences') }}
         </h2>
         <p class="text-gray-600 group-hover:text-blue-600 transition">
-          Mon évolution dans le domaine
+          {{ $t('home.journey') }}
         </p>
       </NuxtLink>
 
@@ -89,10 +87,10 @@ useSeoMeta({
         <h2
           class="text-xl font-semibold text-blue-900 mb-3 group-hover:text-blue-700 transition"
         >
-          Contact
+          {{ $t('nav.contact') }}
         </h2>
         <p class="text-gray-600 group-hover:text-blue-600 transition">
-          Travaillons ensemble <i class="fas fa-handshake text-grey-700"></i>
+          {{ $t('home.work_together') }} <i class="fas fa-handshake text-grey-700"></i>
         </p>
       </NuxtLink>
     </main>
