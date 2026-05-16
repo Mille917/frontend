@@ -36,11 +36,14 @@
     "from": "From",
     "to": "To",
     "current": "Current",
-    "noExperiences": "No experiences yet"
+    "noExperiences": "No experiences yet",
+    "loading": "Loading experiences..."
   },
   "skills": {
     "title": "Skills",
     "description": "Technologies and skills I work with",
+    "subtitle": "Discover my technical toolbox",
+    "loading": "Loading skills...",
     "noSkills": "No skills yet"
   },
   "contact": {
