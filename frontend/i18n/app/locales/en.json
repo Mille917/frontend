@@ -126,7 +126,17 @@
     "subject_col": "Subject",
     "status_col": "Status",
     "company_col": "Company",
-    "period_col": "Period"
+    "period_col": "Period",
+    "back_to_dashboard": "Back to Dashboard"
+  },
+  "messages": {
+    "title": "Received Messages",
+    "loading": "Loading messages...",
+    "received": "Received on",
+    "read_verb": "Read",
+    "read": "Read",
+    "unread": "Unread",
+    "delete": "Delete"
   },
   "common": {
     "loading": "Loading...",

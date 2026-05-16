@@ -126,7 +126,17 @@
     "subject_col": "Likambo",
     "status_col": "Lolenge",
     "company_col": "Ndaku ya Mosala",
-    "period_col": "Ntango"
+    "period_col": "Ntango",
+    "back_to_dashboard": "Zonga na Tabliyoyi"
+  },
+  "messages": {
+    "title": "Liloba ya Kontaki",
+    "loading": "Batumaka liloba...",
+    "received": "Ezumaki na",
+    "read_verb": "Tala",
+    "read": "Lu",
+    "unread": "Non lu",
+    "delete": "Funa"
   },
   "common": {
     "loading": "Batumaka...",

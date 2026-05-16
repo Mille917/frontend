@@ -126,7 +126,17 @@
     "subject_col": "Sujet",
     "status_col": "Statut",
     "company_col": "Entreprise",
-    "period_col": "Période"
+    "period_col": "Période",
+    "back_to_dashboard": "Retour au tableau de bord"
+  },
+  "messages": {
+    "title": "Messages Reçus",
+    "loading": "Chargement des messages...",
+    "received": "Reçu le",
+    "read_verb": "Lire",
+    "read": "Lu",
+    "unread": "Non lu",
+    "delete": "Supprimer"
   },
   "common": {
     "loading": "Chargement...",
