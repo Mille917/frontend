@@ -32,6 +32,7 @@ export const useUserStore = defineStore("user", {
         };
         this.error =
           e.response?.data?.message ?? e.message ?? "Erreur de connexion";
+        throw err;
       } finally {
         this.loading = false;
       }

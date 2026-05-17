@@ -41,14 +41,16 @@
     "to": "Kino",
     "current": "Sikomu",
     "noExperiences": "Mabe eloko te",
-    "loading": "Batumaka parcours..."
+    "loading": "Batumaka parcours...",
+    "empty": "Mabe eloko te."
   },
   "skills": {
     "title": "Lolenge",
     "description": "Tekinoloji mpe lolenge oyo nasalaka na yango",
     "subtitle": "Tala mayele na ngai ya tekiniki",
     "loading": "Batumaka lolenge...",
-    "noSkills": "Lolenge eloko te"
+    "noSkills": "Lolenge eloko te",
+    "empty": "Lolenge eloko te."
   },
   "contact": {
     "title": "Kontaki Ngai",

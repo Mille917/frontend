@@ -41,14 +41,16 @@
     "to": "À",
     "current": "Actuel",
     "noExperiences": "Aucune expérience pour le moment",
-    "loading": "Chargement des expériences..."
+    "loading": "Chargement des expériences...",
+    "empty": "Aucune expérience pour le moment."
   },
   "skills": {
     "title": "Compétences",
     "description": "Technologies et compétences avec lesquelles je travaille",
     "subtitle": "Découvrez ma boîte à outils technique",
     "loading": "Chargement des compétences...",
-    "noSkills": "Aucune compétence pour le moment"
+    "noSkills": "Aucune compétence pour le moment",
+    "empty": "Aucune compétence pour le moment."
   },
   "contact": {
     "title": "Contactez-moi",

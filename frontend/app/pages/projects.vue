@@ -139,7 +139,7 @@ onMounted(async () => {
 
           <div
             class="text-gray-600 text-sm mb-4 line-clamp-3 flex-1 overflow-hidden"
-            v-html="project.description"
+            v-text="project.description"
           ></div>
 
           <!-- 🔗 Liens et détails -->

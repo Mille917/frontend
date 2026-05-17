@@ -41,14 +41,16 @@
     "to": "To",
     "current": "Current",
     "noExperiences": "No experiences yet",
-    "loading": "Loading experiences..."
+    "loading": "Loading experiences...",
+    "empty": "No experiences yet."
   },
   "skills": {
     "title": "Skills",
     "description": "Technologies and skills I work with",
     "subtitle": "Discover my technical toolbox",
     "loading": "Loading skills...",
-    "noSkills": "No skills yet"
+    "noSkills": "No skills yet",
+    "empty": "No skills yet."
   },
   "contact": {
     "title": "Get in Touch",

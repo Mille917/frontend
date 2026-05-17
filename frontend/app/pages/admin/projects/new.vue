@@ -99,6 +99,7 @@ const saveProject = async () => {
 
   try {
     // Le token est géré par l'intercepteur dans plugins/api.ts
+    // Note: Ne pas forcer Content-Type, laisser axios gérer multipart/form-data
     await $api.post("/projects", formData);
     router.push("/admin/projects");
   } catch (err: unknown) {

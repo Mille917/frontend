@@ -150,11 +150,8 @@ const updateProject = async () => {
 
   try {
     // Note: Le token est ajouté automatiquement par l'intercepteur dans plugins/api.ts
-    await $api.put(`/projects/${projectId}`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    // Note: Ne pas forcer Content-Type, laisser axios gérer la boundary multipart
+    await $api.put(`/projects/${projectId}`, formData);
 
     success.value = true;
     setTimeout(() => router.push("/admin/projects"), 1500);
