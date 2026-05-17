@@ -3,17 +3,61 @@ import { ref, onMounted } from "vue";
 
 const { $api } = useNuxtApp();
 
-const projects = ref<any[]>([]);
+interface ProjectItem {
+  id: string | number;
+  title: string;
+  description: string;
+  imageUrl?: string;
+  images?: string[];
+  githubLink?: string;
+  demoLink?: string;
+}
+
+interface RawProjectItem {
+  id?: unknown;
+  title?: unknown;
+  description?: unknown;
+  imageUrl?: unknown;
+  image_url?: unknown;
+  images?: unknown;
+  githubLink?: unknown;
+  github_link?: unknown;
+  demoLink?: unknown;
+  demo_link?: unknown;
+}
+
+interface ApiErrorResponse {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+}
+
+const projects = ref<ProjectItem[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
-    const { data } = await $api.get("/public/projects");
+    const { data } = await $api.get<RawProjectItem[]>("/public/projects");
+    // Normaliser les champs snake_case -> camelCase
+    const normalize = (p: RawProjectItem): ProjectItem => ({
+      id: (p.id ?? "") as string | number,
+      title: String(p.title ?? ""),
+      description: String(p.description ?? ""),
+      imageUrl: (p.imageUrl as string) ?? (p.image_url as string | undefined),
+      images: Array.isArray(p.images) ? (p.images as string[]) : undefined,
+      githubLink: (p.githubLink as string) ?? (p.github_link as string | undefined),
+      demoLink: (p.demoLink as string) ?? (p.demo_link as string | undefined),
+    });
+
+    const normalized = data.map(normalize);
+
     // Précharger toutes les images avant affichage
     await Promise.all(
-      data.map(
-        (project: any) =>
+      normalized.map(
+        (project) =>
           new Promise((resolve) => {
             const img = new Image();
             img.src = project.imageUrl || "/placeholder-project.jpg";
@@ -23,10 +67,11 @@ onMounted(async () => {
       )
     );
 
-    projects.value = data;
-  } catch (err: any) {
+    projects.value = normalized;
+  } catch (err: unknown) {
     console.error("Erreur chargement projets:", err);
-    error.value = err.response?.data?.message || "Erreur de chargement.";
+    const apiError = err as ApiErrorResponse;
+    error.value = apiError.response?.data?.message || "Erreur de chargement.";
   } finally {
     loading.value = false;
   }

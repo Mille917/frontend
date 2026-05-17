@@ -28,7 +28,11 @@
     "viewCode": "Tala Code",
     "liveDemo": "Tala na Internet",
     "noProjects": "Ba projet eza te",
-    "loading": "Batumaka misala..."
+    "loading": "Batumaka misala...",
+    "code": "Monikó",
+    "demo": "Bomeki",
+    "details": "Bososoli",
+    "empty": "Mosala moko te po na sikayo."
   },
   "experiences": {
     "title": "Experiences",

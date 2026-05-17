@@ -28,7 +28,11 @@
     "viewCode": "View Code",
     "liveDemo": "Live Demo",
     "noProjects": "No projects yet",
-    "loading": "Loading projects..."
+    "loading": "Loading projects...",
+    "code": "Code",
+    "demo": "Demo",
+    "details": "Details",
+    "empty": "No projects yet."
   },
   "experiences": {
     "title": "Professional Experiences",

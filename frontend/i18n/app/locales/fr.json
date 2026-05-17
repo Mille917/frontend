@@ -28,7 +28,11 @@
     "viewCode": "Voir le code",
     "liveDemo": "Démo en direct",
     "noProjects": "Aucun projet pour le moment",
-    "loading": "Chargement des projets..."
+    "loading": "Chargement des projets...",
+    "code": "Code",
+    "demo": "Démo",
+    "details": "Détails",
+    "empty": "Aucun projet pour le moment."
   },
   "experiences": {
     "title": "Expériences Professionnelles",

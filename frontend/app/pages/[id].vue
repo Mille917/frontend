@@ -28,6 +28,21 @@ interface ApiErrorResponse {
   };
 }
 
+interface RawProject {
+  title?: unknown;
+  description?: unknown;
+  technologies?: unknown;
+  price?: unknown;
+  duration?: unknown;
+  imageUrl?: unknown;
+  image_url?: unknown;
+  images?: unknown;
+  githubLink?: unknown;
+  github_link?: unknown;
+  demoLink?: unknown;
+  demo_link?: unknown;
+}
+
 const { $api } = useNuxtApp();
 const route = useRoute();
 
@@ -65,8 +80,20 @@ const getErrorMessage = (err: unknown): string | undefined => {
 /* 🔄 Chargement du projet */
 onMounted(async () => {
   try {
-    const { data } = await $api.get<Project>(`/public/projects/${String(route.params.id)}`);
-    project.value = data;
+    const { data } = await $api.get(`/public/projects/${String(route.params.id)}`);
+    const normalize = (p: RawProject): Project => ({
+      title: String(p.title ?? ""),
+      description: String(p.description ?? ""),
+      technologies: typeof p.technologies === "string" ? p.technologies : undefined,
+      price: p.price as string | number | undefined,
+      duration: typeof p.duration === "string" ? p.duration : undefined,
+      imageUrl: (p.imageUrl as string) ?? (p.image_url as string | undefined),
+      images: Array.isArray(p.images) ? (p.images as string[]) : undefined,
+      githubLink: (p.githubLink as string) ?? (p.github_link as string | undefined),
+      demoLink: (p.demoLink as string) ?? (p.demo_link as string | undefined),
+    });
+
+    project.value = normalize(data);
   } catch (err: unknown) {
     console.error("Erreur de chargement du projet :", err);
     error.value = getErrorMessage(err) || "Impossible de charger ce projet.";
@@ -148,7 +175,7 @@ onMounted(async () => {
           :src="project.imageUrl"
           alt="Image principale"
           class="w-full h-80 object-cover cursor-zoom-in"
-          @click="openModal(project.imageUrl)"
+          @click="openModal(project.imageUrl!)"
         />
       </div>
 
@@ -235,7 +262,7 @@ onMounted(async () => {
 
       <!-- Bouton fermer -->
       <button
-      class="absolute top-6 right-6 bg-white/10 hover:bg-white/20 text-white text-2xl p-2 rounded-full"
+        class="absolute top-6 right-6 bg-white/10 hover:bg-white/20 text-white text-2xl p-2 rounded-full"
         @click="closeModal"
       >
         <i class="fa-solid fa-xmark"></i>
