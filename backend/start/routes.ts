@@ -11,6 +11,7 @@
 */
 
 import router from '@adonisjs/core/services/router'
+import { middleware } from '#start/kernel'
 const UsersController = () => import('#controllers/users_controller')
 const ProjectsController = () => import('#controllers/projects_controller')
 const SkillsController = () => import('#controllers/skills_controller')
@@ -25,7 +26,7 @@ router.get('/', async () => {
 })
 
 // Route pour le dashboard admin
-router.get('/api/dashboard', [DashboardController, 'index'])
+router.get('/api/dashboard', [DashboardController, 'index']).use(middleware.auth())
 
 /* -------------------------------------------------------------------------- */
 /* 🟢 SECTION PUBLIQUE (accessible depuis ton site Nuxt)                      */
@@ -34,16 +35,16 @@ router
   .group(() => {
     // 📁 Portfolio content
     router.get('projects', [ProjectsController, 'index'])
-    router.get('projects/latest', [ProjectsController, 'store'])
+    router.get('projects/latest', [ProjectsController, 'index']) // Fix: store -> index
     router.get('projects/:id', [ProjectsController, 'show'])
 
     router.get('skills', [SkillsController, 'index'])
     router.get('skills/:id', [SkillsController, 'show'])
-    router.get('skills/latest', [SkillsController, 'store'])
+    router.get('skills/latest', [SkillsController, 'index']) // Fix: store -> index
 
     router.get('experiences', [ExperiencesController, 'index'])
     router.get('experiences/:id', [ExperiencesController, 'show'])
-    router.get('experiences/latest', [ExperiencesController, 'store'])
+    router.get('experiences/latest', [ExperiencesController, 'index']) // Fix: store -> index
 
     // 📬 Contact form
     router.post('contact', [ContactsController, 'store'])
@@ -60,14 +61,8 @@ router
   .group(() => {
     router.post('register', [AuthController, 'register'])
     router.post('login', [AuthController, 'login'])
-    router.get('me', [AuthController, 'me']).use(async ({ auth }, next) => {
-      await auth.authenticate()
-      await next()
-    })
-    router.post('logout', [AuthController, 'logout']).use(async ({ auth }, next) => {
-      await auth.authenticate()
-      await next()
-    })
+    router.get('me', [AuthController, 'me']).use(middleware.auth())
+    router.post('logout', [AuthController, 'logout']).use(middleware.auth())
   })
   .prefix('/api/auth')
 
@@ -80,3 +75,4 @@ router
     router.resource('contacts', ContactsController).apiOnly()
   })
   .prefix('/api')
+  .use(middleware.auth()) // Sécurise tout le groupe /api

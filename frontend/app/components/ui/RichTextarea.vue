@@ -3,6 +3,7 @@ import { ref, watch } from "vue";
 
 const props = defineProps({
   modelValue: { type: String, default: "" },
+  id: { type: String, default: "rich-editor" },
 });
 
 const emit = defineEmits(["update:modelValue"]);
@@ -67,8 +68,8 @@ function preventSubmit(e) {
 
     <!-- Zone d’édition WYSIWYG -->
     <div
-      id="rich-editor"
-      class="w-full min-h-[180px] p-3 border rounded-lg focus:ring focus:ring-blue-300 bg-white"
+      :id="id"
+      class="rich-editor w-full min-h-[180px] p-3 border rounded-lg focus:ring focus:ring-blue-300 bg-white"
       contenteditable="true"
       @input="text = $event.target.innerHTML"
       @keydown="preventSubmit"
@@ -78,7 +79,7 @@ function preventSubmit(e) {
 </template>
 
 <style scoped>
-#rich-editor:focus {
+.rich-editor:focus {
   outline: none;
 }
 </style>
