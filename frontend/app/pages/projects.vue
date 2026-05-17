@@ -9,7 +9,7 @@ const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
-    const { data } = await $api.get("/projects");
+    const { data } = await $api.get("/public/projects");
     // Précharger toutes les images avant affichage
     await Promise.all(
       data.map(

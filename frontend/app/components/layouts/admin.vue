@@ -21,13 +21,13 @@
           <button
             v-for="tab in tabs"
             :key="tab.id"
-            @click="setActive(tab.id)"
             :class="[
               'relative p-3 rounded-lg text-left transition flex items-center justify-between',
               activeTab === tab.id
                 ? 'bg-blue-600 text-white shadow-md'
                 : 'bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600',
             ]"
+            @click="setActive(tab.id)"
           >
             <span>
               <i :class="tab.icon + ' mr-2'"></i>
@@ -48,8 +48,8 @@
       <!-- Déconnexion -->
       <div class="p-6">
         <button
-          @click="logout"
           class="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition flex items-center justify-center gap-2"
+          @click="logout"
         >
           <i class="fa-solid fa-right-from-bracket"></i> Déconnexion
         </button>
@@ -80,24 +80,34 @@
         </button>
       </div>
 
-      <slot :activeTab="activeTab"></slot>
+      <slot :active-tab="activeTab"></slot>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import axios from "axios";
 import { useUserStore } from "~~/stores/user";
 
+const { $api } = useNuxtApp();
 const userStore = useUserStore();
 const activeTab = ref("projects");
 const unreadCount = ref(0);
 const sidebarOpen = ref(false);
-const apiBase = useRuntimeConfig().public.apiBase;
+
+interface AdminTab {
+  id: string;
+  label: string;
+  icon: string;
+}
 
 // ✅ Liste des onglets
-const tabs = [
+interface ContactMessage {
+  isRead?: boolean;
+  is_read?: boolean;
+}
+
+const tabs: AdminTab[] = [
   { id: "projects", label: "Projets", icon: "fa-solid fa-folder-open" },
   { id: "skills", label: "Compétences", icon: "fa-solid fa-brain" },
   { id: "experiences", label: "Expériences", icon: "fa-solid fa-briefcase" },
@@ -113,8 +123,10 @@ const setActive = (id: string) => {
 // 🔹 Charger le nombre de messages non lus
 const fetchUnreadMessages = async () => {
   try {
-    const { data } = await axios.get(`${apiBase}/api/contacts`);
-    unreadCount.value = data.filter((m: any) => !(m.isRead ?? m.is_read)).length;
+    const { data } = await $api.get<ContactMessage[]>("/contacts");
+    unreadCount.value = data.filter(
+      (m: ContactMessage) => !(m.isRead ?? m.is_read),
+    ).length;
   } catch (err) {
     console.error("Erreur chargement messages non lus:", err);
   }
@@ -127,7 +139,7 @@ onMounted(() => {
 });
 
 const logout = () => {
-  userStore.logout();
+  userStore.$reset();
   navigateTo("/login");
 };
 </script>
@@ -141,7 +153,7 @@ aside {
 @media (max-width: 768px) {
   aside {
     position: fixed;
-    height: 100vh;
+    block-size: 100vh;
   }
 }
 </style>

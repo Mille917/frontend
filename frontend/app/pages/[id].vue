@@ -8,10 +8,30 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
+interface Project {
+  title: string;
+  description: string;
+  technologies?: string;
+  price?: string | number;
+  duration?: string;
+  imageUrl?: string;
+  images?: string[];
+  githubLink?: string;
+  demoLink?: string;
+}
+
+interface ApiErrorResponse {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+}
+
 const { $api } = useNuxtApp();
 const route = useRoute();
 
-const project = ref<any | null>(null);
+const project = ref<Project | null>(null);
 const loading = ref(true);
 const error = ref<string | null>(null);
 
@@ -29,15 +49,27 @@ const closeModal = () => {
   activeImage.value = null;
 };
 
+const getErrorMessage = (err: unknown): string | undefined => {
+  if (err instanceof Error) {
+    return err.message;
+  }
+
+  if (typeof err === "object" && err !== null) {
+    const response = (err as ApiErrorResponse).response;
+    return response?.data?.message;
+  }
+
+  return undefined;
+};
+
 /* 🔄 Chargement du projet */
 onMounted(async () => {
   try {
-    const { data } = await $api.get(`/projects/${route.params.id}`);
+    const { data } = await $api.get<Project>(`/public/projects/${String(route.params.id)}`);
     project.value = data;
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Erreur de chargement du projet :", err);
-    error.value =
-      err.response?.data?.message || "Impossible de charger ce projet.";
+    error.value = getErrorMessage(err) || "Impossible de charger ce projet.";
   } finally {
     loading.value = false;
   }
@@ -75,9 +107,10 @@ onMounted(async () => {
         </h1>
 
         <div
-          class="text-gray-600 max-w-3xl mx-auto leading-relaxed prose prose-sm sm:prose-base"
-          v-html="project.description"
-        ></div>
+          class="text-gray-600 max-w-3xl mx-auto leading-relaxed prose prose-sm sm:prose-base whitespace-pre-line"
+        >
+          {{ project.description }}
+        </div>
 
         <div
           class="flex justify-center flex-wrap gap-4 mt-4 text-sm text-gray-600"
@@ -202,8 +235,8 @@ onMounted(async () => {
 
       <!-- Bouton fermer -->
       <button
+      class="absolute top-6 right-6 bg-white/10 hover:bg-white/20 text-white text-2xl p-2 rounded-full"
         @click="closeModal"
-        class="absolute top-6 right-6 bg-white/10 hover:bg-white/20 text-white text-2xl p-2 rounded-full"
       >
         <i class="fa-solid fa-xmark"></i>
       </button>
@@ -214,8 +247,8 @@ onMounted(async () => {
 <style scoped>
 /* Swiper */
 .swiper {
-  width: 100%;
-  height: 400px;
+  inline-size: 100%;
+  block-size: 400px;
   border-radius: 16px;
   --swiper-navigation-color: #1d4ed8;
   --swiper-pagination-color: #1d4ed8;

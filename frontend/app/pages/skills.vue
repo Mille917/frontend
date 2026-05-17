@@ -8,7 +8,7 @@ const error = ref<string | null>(null);
 
 onMounted(async () => {
   try {
-    const { data } = await $api.get("/skills");
+    const { data } = await $api.get("/public/skills");
     skills.value = data;
   } catch (err: any) {
     console.error("Erreur:", err);

@@ -3,11 +3,35 @@ import { ref, onMounted } from "vue";
 
 const { $api } = useNuxtApp();
 
-const experiences = ref<any[]>([]);
+interface ExperienceDate {
+  year: number;
+  month: number;
+  day: number;
+}
+
+interface ExperienceEntry {
+  id: string | number;
+  position: string;
+  company: string;
+  location?: string;
+  startDate?: string | ExperienceDate | null;
+  endDate?: string | ExperienceDate | null;
+  description?: string;
+}
+
+interface ApiErrorResponse {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+}
+
+const experiences = ref<ExperienceEntry[]>([]);
 const loading = ref(true);
 const error = ref<string | null>(null);
 
-function formatDate(date: any): string {
+function formatDate(date: string | ExperienceDate | null | undefined): string {
   if (!date) return "—";
 
   // Si c’est une string ISO ou SQL
@@ -15,15 +39,21 @@ function formatDate(date: any): string {
     // Corrige le format "YYYY-MM-DD HH:mm:ss" → "YYYY-MM-DDTHH:mm:ss"
     const clean = date.replace(" ", "T");
     const d = new Date(clean);
-    if (!isNaN(d.getTime())) {
+    if (!Number.isNaN(d.getTime())) {
       return d.toLocaleDateString("fr-FR", { year: "numeric", month: "long" });
     }
   }
 
-  // Si c’est un objet Luxon-like
-  if (typeof date === "object" && date.year && date.month && date.day) {
-    const d = new Date(date.year, date.month - 1, date.day);
-    return d.toLocaleDateString("fr-FR", { year: "numeric", month: "long" });
+  if (typeof date === "object") {
+    const { year, month, day } = date;
+    if (
+      typeof year === "number" &&
+      typeof month === "number" &&
+      typeof day === "number"
+    ) {
+      const d = new Date(year, month - 1, day);
+      return d.toLocaleDateString("fr-FR", { year: "numeric", month: "long" });
+    }
   }
 
   return "—";
@@ -31,12 +61,13 @@ function formatDate(date: any): string {
 
 onMounted(async () => {
   try {
-    const { data } = await $api.get("/experiences");
+    const { data } = await $api.get<ExperienceEntry[]>("/public/experiences");
     experiences.value = data;
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Erreur chargement parcours:", err);
+    const apiError = err as ApiErrorResponse;
     error.value =
-      err.response?.data?.message || "Erreur lors du chargement du parcours.";
+      apiError.response?.data?.message || "Erreur lors du chargement du parcours.";
   } finally {
     loading.value = false;
   }
