@@ -25,6 +25,11 @@ export default class AuthController {
         return response.unauthorized({ message: 'Email non trouvé' })
       }
 
+      // Vérifie si le mot de passe stocké ressemble à un hash pour éviter que hash.verify ne plante
+      if (!user.password?.startsWith('$')) {
+        return response.unauthorized({ message: 'Le mot de passe en base de données n\'est pas haché. Veuillez recréer le compte.' })
+      }
+
       const matches = await hash.use('scrypt').verify(user.password, password)
       if (!matches) {
         return response.unauthorized({ message: 'Mot de passe incorrect' })
