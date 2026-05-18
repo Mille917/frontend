@@ -35,10 +35,4 @@ export default class User extends compose(BaseModel, AuthFinder) {
   @hasMany(() => Project)
   declare projects: any
 
-  @beforeSave()
-  public static async hashPassword(user: any) {
-    if (user.$dirty.password) {
-      user.password = await hash.use('scrypt').make(user.password)
-    }
-  }
 }
