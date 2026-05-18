@@ -21,7 +21,7 @@ const triggerSecret = () => {
     clickCount.value = 0;
   }, 1000);
 
-  if (clickCount.value === 3) {
+  if (clickCount.value === 6) {
     clickCount.value = 0;
     router.push("/admin/login");
   }
