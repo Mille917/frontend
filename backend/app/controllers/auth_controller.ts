@@ -3,9 +3,17 @@ import User from '#models/user'
 
 export default class AuthController {
   async register({ request, response }: HttpContext) {
-    const data = request.only(['fullName', 'email', 'password'])
-    const user = await User.create(data)
-    return response.created({ message: 'User created successfully', user })
+    const { fullName, email, password } = request.only(['fullName', 'email', 'password'])
+    try {
+      const user = await User.create({ full_name: fullName, email, password })
+      return response.created({ message: 'User created successfully', user })
+    } catch (error: any) {
+      // Gère l'erreur de doublon (email unique)
+      if (error.code === '23505' || error.message?.includes('unique') || error.message?.includes('constraint')) {
+        return response.badRequest({ message: 'Cet email est déjà utilisé.' })
+      }
+      return response.internalServerError({ message: 'Erreur lors de l\'inscription', error: error.message })
+    }
   }
 
   async login({ request, response }: HttpContext) {
