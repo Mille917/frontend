@@ -141,7 +141,22 @@
     "image_label": "Main Image",
     "upload_image": "Upload Image",
     "gallery_label": "Image Gallery",
-    "upload_gallery": "Upload Images"
+    "upload_gallery": "Upload Images",
+    "edit_project": "Edit Project",
+    "back_to_projects": "Back to Projects",
+    "loading_project": "Loading project...",
+    "title_label": "Title",
+    "description_label": "Description",
+    "technologies_label": "Technologies",
+    "technologies_placeholder": "E.g.: Vue.js, TailwindCSS",
+    "duration_placeholder": "E.g.: 3 months",
+    "project_image_alt": "Project Image",
+    "gallery_image_alt": "Gallery Image {number}",
+    "remove": "Remove",
+    "project_updated": "Project updated successfully!",
+    "remove_image": "Remove Image",
+    "new_project": "New Project",
+    "saving": "Saving..."
   },
   "messages": {
     "title": "Received Messages",

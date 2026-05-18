@@ -141,7 +141,22 @@
     "image_label": "Image principale",
     "upload_image": "Téléverser une image",
     "gallery_label": "Galerie d'images",
-    "upload_gallery": "Téléverser des images"
+    "upload_gallery": "Téléverser des images",
+    "edit_project": "Modifier le projet",
+    "back_to_projects": "Retour aux projets",
+    "loading_project": "Chargement du projet...",
+    "title_label": "Titre",
+    "description_label": "Description",
+    "technologies_label": "Technologies",
+    "technologies_placeholder": "Ex: Vue.js, TailwindCSS",
+    "duration_placeholder": "Ex: 3 mois",
+    "project_image_alt": "Image du projet",
+    "gallery_image_alt": "Image de la galerie {number}",
+    "remove": "Retirer",
+    "project_updated": "Projet mis à jour avec succès !",
+    "remove_image": "Supprimer l'image",
+    "new_project": "Nouveau Projet",
+    "saving": "Enregistrement..."
   },
   "messages": {
     "title": "Messages Reçus",
