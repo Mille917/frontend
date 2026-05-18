@@ -133,7 +133,15 @@
     "status_col": "Status",
     "company_col": "Company",
     "period_col": "Period",
-    "back_to_dashboard": "Back to Dashboard"
+    "back_to_dashboard": "Back to Dashboard",
+    "price_label": "Price",
+    "duration_label": "Duration",
+    "github_label": "GitHub Link",
+    "demo_label": "Demo Link",
+    "image_label": "Main Image",
+    "upload_image": "Upload Image",
+    "gallery_label": "Image Gallery",
+    "upload_gallery": "Upload Images"
   },
   "messages": {
     "title": "Received Messages",
