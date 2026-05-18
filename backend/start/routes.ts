@@ -12,6 +12,7 @@
 
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
+import User from '#models/user'
 const UsersController = () => import('#controllers/users_controller')
 const ProjectsController = () => import('#controllers/projects_controller')
 const SkillsController = () => import('#controllers/skills_controller')
@@ -23,6 +24,15 @@ const DashboardController = () => import('#controllers/dashboard_controller')
 
 router.get('/', async () => {
   return { hello: 'world' }
+})
+
+router.get('/api/debug/users', async () => {
+  const users = await User.all()
+  return users.map(u => ({
+    email: u.email,
+    hasHashedPassword: u.password?.startsWith('$') || false,
+    passwordLength: u.password?.length || 0
+  }))
 })
 
 // Route pour le dashboard admin
