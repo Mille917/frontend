@@ -13,6 +13,7 @@
 import router from '@adonisjs/core/services/router'
 import { middleware } from '#start/kernel'
 import User from '#models/user'
+import hash from '@adonisjs/core/services/hash'
 const UsersController = () => import('#controllers/users_controller')
 const ProjectsController = () => import('#controllers/projects_controller')
 const SkillsController = () => import('#controllers/skills_controller')
