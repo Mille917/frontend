@@ -19,12 +19,21 @@ export default class AuthController {
   async login({ request, response }: HttpContext) {
     const { email, password } = request.only(['email', 'password'])
     try {
-      const user = await User.verifyCredentials(email.toLowerCase(), password)
+      const user = await User.findBy('email', email.toLowerCase())
+      if (!user) {
+        return response.unauthorized({ message: 'Email non trouvé' })
+      }
+
+      const matches = await hash.use('scrypt').verify(user.password, password)
+      if (!matches) {
+        return response.unauthorized({ message: 'Mot de passe incorrect' })
+      }
+
       const tokenRecord = await User.accessTokens.create(user)
       const { token } = tokenRecord.toJSON()
       return response.ok({ user, token })
-    } catch {
-      return response.unauthorized({ message: 'Invalid credentials' })
+    } catch (error: any) {
+      return response.internalServerError({ message: 'Erreur lors de la connexion', error: error.message })
     }
   }
 
