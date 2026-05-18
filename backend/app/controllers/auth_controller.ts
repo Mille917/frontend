@@ -5,7 +5,7 @@ export default class AuthController {
   async register({ request, response }: HttpContext) {
     const { fullName, email, password } = request.only(['fullName', 'email', 'password'])
     try {
-      const user = await User.create({ full_name: fullName, email, password })
+      const user = await User.create({ full_name: fullName, email: email.toLowerCase(), password })
       return response.created({ message: 'User created successfully', user })
     } catch (error: any) {
       // Gère l'erreur de doublon (email unique)
@@ -19,7 +19,7 @@ export default class AuthController {
   async login({ request, response }: HttpContext) {
     const { email, password } = request.only(['email', 'password'])
     try {
-      const user = await User.verifyCredentials(email, password)
+      const user = await User.verifyCredentials(email.toLowerCase(), password)
       const tokenRecord = await User.accessTokens.create(user)
       const { token } = tokenRecord.toJSON()
       return response.ok({ user, token })

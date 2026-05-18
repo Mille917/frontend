@@ -28,11 +28,24 @@ router.get('/', async () => {
 
 router.get('/api/debug/users', async () => {
   const users = await User.all()
-  return users.map(u => ({
+  return users.map((u) => ({
     email: u.email,
     hasHashedPassword: u.password?.startsWith('$') || false,
-    passwordLength: u.password?.length || 0
+    passwordLength: u.password?.length || 0,
   }))
+})
+
+router.post('/api/debug/verify', async ({ request }) => {
+  const { email, password } = request.only(['email', 'password'])
+  const user = await User.findBy('email', email)
+  if (!user) return { found: false }
+
+  const matches = await hash.use('scrypt').verify(user.password, password)
+  return {
+    found: true,
+    matches,
+    hashInDb: user.password.substring(0, 20) + '...',
+  }
 })
 
 // Route pour le dashboard admin
