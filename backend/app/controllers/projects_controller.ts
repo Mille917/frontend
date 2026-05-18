@@ -89,12 +89,19 @@ export default class ProjectsController {
       extnames: ['jpg', 'jpeg', 'png', 'webp'],
     })
 
-    if (image) {
-      const tmpPath = image.tmpPath!
-      const uploadResult = await cloudinary.uploader.upload(tmpPath, {
-        folder: 'projects',
+    try {
+      if (image) {
+        const tmpPath = image.tmpPath!
+        const uploadResult = await cloudinary.uploader.upload(tmpPath, {
+          folder: 'projects',
+        })
+        data.image_url = uploadResult.secure_url
+      }
+    } catch (e: any) {
+      return response.internalServerError({
+        message: "Erreur d'upload de l'image sur Cloudinary",
+        error: e.message,
       })
-      data.image_url = uploadResult.secure_url
     }
 
     // 🖼️ Galerie (nouvelles images)
