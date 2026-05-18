@@ -12,7 +12,8 @@ export default class AuthController {
     const { email, password } = request.only(['email', 'password'])
     try {
       const user = await User.verifyCredentials(email, password)
-      const token = await User.accessTokens.create(user)
+      const tokenRecord = await User.accessTokens.create(user)
+      const { token } = tokenRecord.toJSON()
       return response.ok({ user, token })
     } catch {
       return response.unauthorized({ message: 'Invalid credentials' })
