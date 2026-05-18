@@ -34,5 +34,4 @@ export default class User extends compose(BaseModel, AuthFinder) {
 
   @hasMany(() => Project)
   declare projects: any
-
 }
