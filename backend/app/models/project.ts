@@ -31,7 +31,18 @@ export default class Project extends BaseModel {
   @column()
   declare duration: string | null
 
-  @column()
+  @column({
+    prepare: (value: string[] | null) => (value ? JSON.stringify(value) : null),
+    consume: (value: string | string[] | null) => {
+      if (!value) return []
+      if (Array.isArray(value)) return value
+      try {
+        return JSON.parse(value)
+      } catch {
+        return []
+      }
+    },
+  })
   declare images: string[] | null // JSON array (Cloudinary URLs)
 
   @belongsTo(() => User)

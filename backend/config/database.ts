@@ -6,7 +6,7 @@ const dbConfig = defineConfig({
   connections: {
     postgres: {
       client: 'pg',
-      connection: {
+      connection: env.get('DATABASE_URL') || {
         host: env.get('DB_HOST'),
         port: env.get('DB_PORT'),
         user: env.get('DB_USER'),
@@ -16,7 +16,8 @@ const dbConfig = defineConfig({
         ssl:
           env.get('NODE_ENV') === 'production' ||
           env.get('DB_HOST')?.includes('neon.tech') ||
-          env.get('DB_HOST')?.includes('render.com')
+          env.get('DB_HOST')?.includes('render.com') ||
+          env.get('DATABASE_URL')?.includes('neon.tech')
             ? { rejectUnauthorized: false }
             : false,
       },
