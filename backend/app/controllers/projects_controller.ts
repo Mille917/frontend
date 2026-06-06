@@ -4,8 +4,17 @@ import cloudinary from '#config/cloudinary'
 
 export default class ProjectsController {
   async index({ response }: HttpContext) {
-    const projects = await Project.all()
-    return response.ok(projects.map((p) => p.toJSON()))
+    try {
+      const projects = await Project.all()
+      return response.ok(projects.map((p) => p.toJSON()))
+    } catch (e: any) {
+      console.error('ProjectsController.index error', e)
+      return response.internalServerError({
+        message: 'Erreur lors de la récupération des projets',
+        error: e.message,
+        stack: e.stack,
+      })
+    }
   }
 
   async show({ params, response }: HttpContext) {
